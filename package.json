@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "parcel build server.js --target main",
     "start-bundle": "node dist/index.js",
     "importdb": "node ./dev-data/data/import-dev-data.js --import",
@@ -49,5 +50,8 @@
     "url": "^0.11.3",
     "util": "^0.12.5",
     "vm-browserify": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }
