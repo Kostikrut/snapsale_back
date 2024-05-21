@@ -18,6 +18,7 @@ const invoiceRouter = require('./routes/invoiceRoutes');
 const app = express();
 
 app.use(cors());
+app.options('*', cors());
 
 // Set security http headers
 app.use(helmet());
