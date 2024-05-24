@@ -26,14 +26,18 @@ const listingSchema = new mongoose.Schema(
       required: [true, 'product must have a price'],
       min: 0,
     },
-    images: [String],
+    image: {
+      filename: String,
+      url: String,
+      contentType: String,
+    },
     createdAt: {
       type: Date,
       default: Date.now(),
     },
     ratingsAvg: {
       type: Number,
-      default: 0,
+      default: 3,
       min: [1, 'Rating must be above 1'],
       max: [10, 'Rating must be blow 10'],
       set: (val) => Math.round(val * 10) / 10,

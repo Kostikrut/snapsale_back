@@ -11,6 +11,7 @@ router
   .post(
     authController.protect,
     authController.restrictTo('maintainer', 'admin'),
+    listingController.uploadListingImage,
     listingController.createListing
   );
 
