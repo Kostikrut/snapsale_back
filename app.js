@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -16,6 +17,8 @@ const reviewRouter = require('./routes/reviewRoutes');
 const invoiceRouter = require('./routes/invoiceRoutes');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.options('*', cors());
