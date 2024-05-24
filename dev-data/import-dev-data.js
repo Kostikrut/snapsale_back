@@ -26,7 +26,7 @@ const listings = JSON.parse(
 
 // Import data to DB
 const importData = async function () {
-  await Listing.create(listings.listings, { runValidators: false });
+  await Listing.create(listings, { runValidators: false });
   console.log('Data successfully loaded.');
 };
 
