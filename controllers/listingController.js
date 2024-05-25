@@ -39,7 +39,6 @@ exports.createListing = catchAsync(async (req, res) => {
     image = {
       filename: req.file.filename,
       url: `/uploads/${req.file.filename}`,
-      contentType: req.file.mimetype,
     };
   }
 

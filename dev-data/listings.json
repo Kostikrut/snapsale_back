@@ -1,1802 +1,230 @@
 [
   {
-    "title": "Bose QuietComfort 35 II",
-    "slug": "bose-quietcomfort-35-ii",
-    "category": "headphones",
-    "tags": [
-      "tag5",
-      "tag9"
-    ],
-    "description": "Bose QuietComfort 35 II is a top-rated product in the headphones category.",
-    "price": 1850.65,
-    "images": [
-      "bose-quietcomfort-35-ii-image4.jpg",
-      "bose-quietcomfort-35-ii-image7.jpg"
-    ],
-    "createdAt": "2023-09-05T18:04:18.729394",
-    "ratingsAvg": 5.8,
-    "numRatings": 50
-  },
-  {
-    "title": "HP Spectre x360",
-    "slug": "hp-spectre-x360",
+    "title": "MacBook Pro 16-inch",
     "category": "laptops",
-    "tags": [
-      "tag1",
-      "tag9"
-    ],
-    "description": "HP Spectre x360 is a top-rated product in the laptops category.",
-    "price": 1116.77,
-    "images": [
-      "hp-spectre-x360-image5.jpg",
-      "hp-spectre-x360-image9.jpg"
-    ],
-    "createdAt": "2023-07-02T18:04:18.729424",
-    "ratingsAvg": 2.6,
-    "numRatings": 277
-  },
-  {
-    "title": "Asus ROG Zephyrus",
-    "slug": "asus-rog-zephyrus",
-    "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Asus ROG Zephyrus is a top-rated product in the laptops category.",
-    "price": 333.11,
-    "images": [
-      "asus-rog-zephyrus-image1.jpg",
-      "asus-rog-zephyrus-image7.jpg"
-    ],
-    "createdAt": "2024-04-14T18:04:18.729438",
-    "ratingsAvg": 4.3,
-    "numRatings": 725
-  },
-  {
-    "title": "Microsoft Surface Pro 7",
-    "slug": "microsoft-surface-pro-7",
-    "category": "tablets",
-    "tags": [
-      "tag5",
-      "tag6"
-    ],
-    "description": "Microsoft Surface Pro 7 is a top-rated product in the tablets category.",
-    "price": 1934.39,
-    "images": [
-      "microsoft-surface-pro-7-image1.jpg",
-      "microsoft-surface-pro-7-image6.jpg"
-    ],
-    "createdAt": "2023-09-27T18:04:18.729452",
-    "ratingsAvg": 5.3,
-    "numRatings": 458
-  },
-  {
-    "title": "Sennheiser HD 660 S",
-    "slug": "sennheiser-hd-660-s",
-    "category": "headphones",
-    "tags": [
-      "tag5",
-      "tag8"
-    ],
-    "description": "Sennheiser HD 660 S is a top-rated product in the headphones category.",
-    "price": 1979.87,
-    "images": [
-      "sennheiser-hd-660-s-image3.jpg",
-      "sennheiser-hd-660-s-image10.jpg"
-    ],
-    "createdAt": "2023-12-24T18:04:18.729470",
-    "ratingsAvg": 8.3,
-    "numRatings": 670
-  },
-  {
-    "title": "Fujifilm X-T4",
-    "slug": "fujifilm-x-t4",
-    "category": "cameras",
-    "tags": [
-      "tag1",
-      "tag7"
-    ],
-    "description": "Fujifilm X-T4 is a top-rated product in the cameras category.",
-    "price": 1389.23,
-    "images": [
-      "fujifilm-x-t4-image3.jpg",
-      "fujifilm-x-t4-image10.jpg"
-    ],
-    "createdAt": "2024-02-25T18:04:18.729487",
-    "ratingsAvg": 4.1,
-    "numRatings": 96
-  },
-  {
-    "title": "Amazon Fire HD 10",
-    "slug": "amazon-fire-hd-10",
-    "category": "tablets",
-    "tags": [
-      "tag2",
-      "tag8"
-    ],
-    "description": "Amazon Fire HD 10 is a top-rated product in the tablets category.",
-    "price": 177.61,
-    "images": [
-      "amazon-fire-hd-10-image3.jpg",
-      "amazon-fire-hd-10-image10.jpg"
-    ],
-    "createdAt": "2024-04-28T18:04:18.729499",
-    "ratingsAvg": 8.3,
-    "numRatings": 511
-  },
-  {
-    "title": "Bose Home Speaker 500",
-    "slug": "bose-home-speaker-500",
-    "category": "sound",
-    "tags": [
-      "tag2",
-      "tag9"
-    ],
-    "description": "Bose Home Speaker 500 is a top-rated product in the sound category.",
-    "price": 505.34,
-    "images": [
-      "bose-home-speaker-500-image4.jpg",
-      "bose-home-speaker-500-image10.jpg"
-    ],
-    "createdAt": "2023-11-16T18:04:18.729521",
-    "ratingsAvg": 8.5,
-    "numRatings": 887
-  },
-  {
-    "title": "Apple TV 4K",
-    "slug": "apple-tv-4k",
-    "category": "streamers",
-    "tags": [
-      "tag2",
-      "tag6"
-    ],
-    "description": "Apple TV 4K is a top-rated product in the streamers category.",
-    "price": 252.47,
-    "images": [
-      "apple-tv-4k-image4.jpg",
-      "apple-tv-4k-image7.jpg"
-    ],
-    "createdAt": "2024-04-19T18:04:18.729541",
-    "ratingsAvg": 4.2,
-    "numRatings": 225
-  },
-  {
-    "title": "Google Pixel 6",
-    "slug": "google-pixel-6",
-    "category": "smartphones",
-    "tags": [
-      "tag2",
-      "tag6"
-    ],
-    "description": "Google Pixel 6 is a top-rated product in the smartphones category.",
-    "price": 144.31,
-    "images": [
-      "google-pixel-6-image2.jpg",
-      "google-pixel-6-image9.jpg"
-    ],
-    "createdAt": "2023-11-13T18:04:18.729560",
-    "ratingsAvg": 9.4,
-    "numRatings": 565
-  },
-  {
-    "title": "Corsair One Pro",
-    "slug": "corsair-one-pro",
-    "category": "pcs",
-    "tags": [
-      "tag1",
-      "tag10"
-    ],
-    "description": "Corsair One Pro is a top-rated product in the pcs category.",
-    "price": 1025.48,
-    "images": [
-      "corsair-one-pro-image4.jpg",
-      "corsair-one-pro-image7.jpg"
-    ],
-    "createdAt": "2023-11-14T18:04:18.729581",
-    "ratingsAvg": 6.1,
-    "numRatings": 121
-  },
-  {
-    "title": "OnePlus 9",
-    "slug": "oneplus-9",
-    "category": "smartphones",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "OnePlus 9 is a top-rated product in the smartphones category.",
-    "price": 1937.72,
-    "images": [
-      "oneplus-9-image2.jpg",
-      "oneplus-9-image9.jpg"
-    ],
-    "createdAt": "2023-10-21T18:04:18.729599",
-    "ratingsAvg": 2.5,
-    "numRatings": 400
-  },
-  {
-    "title": "Canon EOS R5",
-    "slug": "canon-eos-r5",
-    "category": "cameras",
-    "tags": [
-      "tag2",
-      "tag10"
-    ],
-    "description": "Canon EOS R5 is a top-rated product in the cameras category.",
-    "price": 373.7,
-    "images": [
-      "canon-eos-r5-image4.jpg",
-      "canon-eos-r5-image8.jpg"
-    ],
-    "createdAt": "2023-11-21T18:04:18.729617",
-    "ratingsAvg": 1.7,
-    "numRatings": 262
-  },
-  {
-    "title": "Xbox One X",
-    "slug": "xbox-one-x",
-    "category": "consoles",
-    "tags": [
-      "tag4",
-      "tag9"
-    ],
-    "description": "Xbox One X is a top-rated product in the consoles category.",
-    "price": 1220.55,
-    "images": [
-      "xbox-one-x-image1.jpg",
-      "xbox-one-x-image9.jpg"
-    ],
-    "createdAt": "2023-11-07T18:04:18.729637",
-    "ratingsAvg": 2.1,
-    "numRatings": 289
+    "tags": ["Apple", "Laptop", "Pro"],
+    "description": "Apple MacBook Pro 16-inch with M1 Pro chip.",
+    "price": 2499,
+    "image": {
+      "filename": "macbook_pro_16.jpg",
+      "url": "/uploads/macbook_pro_16.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
     "title": "Dell XPS 13",
-    "slug": "dell-xps-13",
     "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag7"
-    ],
-    "description": "Dell XPS 13 is a top-rated product in the laptops category.",
-    "price": 772.9,
-    "images": [
-      "dell-xps-13-image4.jpg",
-      "dell-xps-13-image6.jpg"
-    ],
-    "createdAt": "2024-02-15T18:04:18.729654",
-    "ratingsAvg": 2.5,
-    "numRatings": 221
-  },
-  {
-    "title": "Bose Home Speaker 500",
-    "slug": "bose-home-speaker-500",
-    "category": "sound",
-    "tags": [
-      "tag1",
-      "tag7"
-    ],
-    "description": "Bose Home Speaker 500 is a top-rated product in the sound category.",
-    "price": 777.02,
-    "images": [
-      "bose-home-speaker-500-image1.jpg",
-      "bose-home-speaker-500-image10.jpg"
-    ],
-    "createdAt": "2023-10-12T18:04:18.729672",
-    "ratingsAvg": 2.2,
-    "numRatings": 566
-  },
-  {
-    "title": "Sony Alpha 7 III",
-    "slug": "sony-alpha-7-iii",
-    "category": "cameras",
-    "tags": [
-      "tag1",
-      "tag6"
-    ],
-    "description": "Sony Alpha 7 III is a top-rated product in the cameras category.",
-    "price": 1165.85,
-    "images": [
-      "sony-alpha-7-iii-image4.jpg",
-      "sony-alpha-7-iii-image9.jpg"
-    ],
-    "createdAt": "2023-12-13T18:04:18.729692",
-    "ratingsAvg": 2.1,
-    "numRatings": 7
-  },
-  {
-    "title": "Amazfit GTS 2",
-    "slug": "amazfit-gts-2",
-    "category": "smartwatches",
-    "tags": [
-      "tag1",
-      "tag9"
-    ],
-    "description": "Amazfit GTS 2 is a top-rated product in the smartwatches category.",
-    "price": 710.65,
-    "images": [
-      "amazfit-gts-2-image3.jpg",
-      "amazfit-gts-2-image8.jpg"
-    ],
-    "createdAt": "2023-11-20T18:04:18.729711",
-    "ratingsAvg": 7.4,
-    "numRatings": 875
-  },
-  {
-    "title": "Fitbit Versa 3",
-    "slug": "fitbit-versa-3",
-    "category": "smartwatches",
-    "tags": [
-      "tag4",
-      "tag9"
-    ],
-    "description": "Fitbit Versa 3 is a top-rated product in the smartwatches category.",
-    "price": 221.07,
-    "images": [
-      "fitbit-versa-3-image1.jpg",
-      "fitbit-versa-3-image6.jpg"
-    ],
-    "createdAt": "2023-09-11T18:04:18.729729",
-    "ratingsAvg": 5.7,
-    "numRatings": 726
-  },
-  {
-    "title": "Alienware Aurora R12",
-    "slug": "alienware-aurora-r12",
-    "category": "pcs",
-    "tags": [
-      "tag4",
-      "tag10"
-    ],
-    "description": "Alienware Aurora R12 is a top-rated product in the pcs category.",
-    "price": 898.97,
-    "images": [
-      "alienware-aurora-r12-image2.jpg",
-      "alienware-aurora-r12-image8.jpg"
-    ],
-    "createdAt": "2024-04-08T18:04:18.729749",
-    "ratingsAvg": 5.0,
-    "numRatings": 933
-  },
-  {
-    "title": "Beats Studio3",
-    "slug": "beats-studio3",
-    "category": "headphones",
-    "tags": [
-      "tag3",
-      "tag9"
-    ],
-    "description": "Beats Studio3 is a top-rated product in the headphones category.",
-    "price": 80.62,
-    "images": [
-      "beats-studio3-image1.jpg",
-      "beats-studio3-image7.jpg"
-    ],
-    "createdAt": "2024-02-27T18:04:18.729769",
-    "ratingsAvg": 1.8,
-    "numRatings": 160
-  },
-  {
-    "title": "PlayStation 5",
-    "slug": "playstation-5",
-    "category": "consoles",
-    "tags": [
-      "tag2",
-      "tag8"
-    ],
-    "description": "PlayStation 5 is a top-rated product in the consoles category.",
-    "price": 1920.93,
-    "images": [
-      "playstation-5-image5.jpg",
-      "playstation-5-image9.jpg"
-    ],
-    "createdAt": "2023-06-08T18:04:18.729788",
-    "ratingsAvg": 4.3,
-    "numRatings": 147
-  },
-  {
-    "title": "Bose QuietComfort 35 II",
-    "slug": "bose-quietcomfort-35-ii",
-    "category": "headphones",
-    "tags": [
-      "tag3",
-      "tag9"
-    ],
-    "description": "Bose QuietComfort 35 II is a top-rated product in the headphones category.",
-    "price": 598.17,
-    "images": [
-      "bose-quietcomfort-35-ii-image3.jpg",
-      "bose-quietcomfort-35-ii-image6.jpg"
-    ],
-    "createdAt": "2023-10-17T18:04:18.729808",
-    "ratingsAvg": 2.3,
-    "numRatings": 127
-  },
-  {
-    "title": "Apple iPad Pro",
-    "slug": "apple-ipad-pro",
-    "category": "tablets",
-    "tags": [
-      "tag4",
-      "tag8"
-    ],
-    "description": "Apple iPad Pro is a top-rated product in the tablets category.",
-    "price": 746.63,
-    "images": [
-      "apple-ipad-pro-image4.jpg",
-      "apple-ipad-pro-image6.jpg"
-    ],
-    "createdAt": "2023-12-25T18:04:18.729829",
-    "ratingsAvg": 4.7,
-    "numRatings": 904
-  },
-  {
-    "title": "Lenovo ThinkPad X1 Carbon",
-    "slug": "lenovo-thinkpad-x1-carbon",
-    "category": "laptops",
-    "tags": [
-      "tag2",
-      "tag9"
-    ],
-    "description": "Lenovo ThinkPad X1 Carbon is a top-rated product in the laptops category.",
-    "price": 1130.55,
-    "images": [
-      "lenovo-thinkpad-x1-carbon-image1.jpg",
-      "lenovo-thinkpad-x1-carbon-image9.jpg"
-    ],
-    "createdAt": "2023-11-27T18:04:18.730137",
-    "ratingsAvg": 1.7,
-    "numRatings": 597
-  },
-  {
-    "title": "HP Spectre x360",
-    "slug": "hp-spectre-x360",
-    "category": "laptops",
-    "tags": [
-      "tag4",
-      "tag8"
-    ],
-    "description": "HP Spectre x360 is a top-rated product in the laptops category.",
-    "price": 980.14,
-    "images": [
-      "hp-spectre-x360-image4.jpg",
-      "hp-spectre-x360-image9.jpg"
-    ],
-    "createdAt": "2023-07-29T18:04:18.730164",
-    "ratingsAvg": 5.4,
-    "numRatings": 587
-  },
-  {
-    "title": "Samsung Galaxy S21",
-    "slug": "samsung-galaxy-s21",
-    "category": "smartphones",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Samsung Galaxy S21 is a top-rated product in the smartphones category.",
-    "price": 596.24,
-    "images": [
-      "samsung-galaxy-s21-image5.jpg",
-      "samsung-galaxy-s21-image9.jpg"
-    ],
-    "createdAt": "2024-04-03T18:04:18.730185",
-    "ratingsAvg": 8.9,
-    "numRatings": 737
-  },
-  {
-    "title": "Dell Inspiron 3880",
-    "slug": "dell-inspiron-3880",
-    "category": "pcs",
-    "tags": [
-      "tag4",
-      "tag8"
-    ],
-    "description": "Dell Inspiron 3880 is a top-rated product in the pcs category.",
-    "price": 473.11,
-    "images": [
-      "dell-inspiron-3880-image1.jpg",
-      "dell-inspiron-3880-image6.jpg"
-    ],
-    "createdAt": "2023-11-05T18:04:18.730210",
-    "ratingsAvg": 8.2,
-    "numRatings": 890
-  },
-  {
-    "title": "Amazfit GTS 2",
-    "slug": "amazfit-gts-2",
-    "category": "smartwatches",
-    "tags": [
-      "tag4",
-      "tag7"
-    ],
-    "description": "Amazfit GTS 2 is a top-rated product in the smartwatches category.",
-    "price": 338.84,
-    "images": [
-      "amazfit-gts-2-image3.jpg",
-      "amazfit-gts-2-image6.jpg"
-    ],
-    "createdAt": "2023-11-03T18:04:18.730231",
-    "ratingsAvg": 1.3,
-    "numRatings": 670
-  },
-  {
-    "title": "Apple iPad Pro",
-    "slug": "apple-ipad-pro",
-    "category": "tablets",
-    "tags": [
-      "tag1",
-      "tag8"
-    ],
-    "description": "Apple iPad Pro is a top-rated product in the tablets category.",
-    "price": 1761.89,
-    "images": [
-      "apple-ipad-pro-image3.jpg",
-      "apple-ipad-pro-image6.jpg"
-    ],
-    "createdAt": "2024-03-26T18:04:18.730251",
-    "ratingsAvg": 9.9,
-    "numRatings": 306
-  },
-  {
-    "title": "Bose QuietComfort 35 II",
-    "slug": "bose-quietcomfort-35-ii",
-    "category": "headphones",
-    "tags": [
-      "tag4",
-      "tag6"
-    ],
-    "description": "Bose QuietComfort 35 II is a top-rated product in the headphones category.",
-    "price": 536.53,
-    "images": [
-      "bose-quietcomfort-35-ii-image3.jpg",
-      "bose-quietcomfort-35-ii-image6.jpg"
-    ],
-    "createdAt": "2024-05-12T18:04:18.730272",
-    "ratingsAvg": 4.2,
-    "numRatings": 378
-  },
-  {
-    "title": "Dell XPS 13",
-    "slug": "dell-xps-13",
-    "category": "laptops",
-    "tags": [
-      "tag5",
-      "tag10"
-    ],
-    "description": "Dell XPS 13 is a top-rated product in the laptops category.",
-    "price": 1310.07,
-    "images": [
-      "dell-xps-13-image1.jpg",
-      "dell-xps-13-image7.jpg"
-    ],
-    "createdAt": "2023-08-27T18:04:18.730292",
-    "ratingsAvg": 7.8,
-    "numRatings": 831
-  },
-  {
-    "title": "Fitbit Versa 3",
-    "slug": "fitbit-versa-3",
-    "category": "smartwatches",
-    "tags": [
-      "tag1",
-      "tag8"
-    ],
-    "description": "Fitbit Versa 3 is a top-rated product in the smartwatches category.",
-    "price": 1581.25,
-    "images": [
-      "fitbit-versa-3-image4.jpg",
-      "fitbit-versa-3-image9.jpg"
-    ],
-    "createdAt": "2023-06-18T18:04:18.730312",
-    "ratingsAvg": 8.9,
-    "numRatings": 262
-  },
-  {
-    "title": "Lenovo Tab P11 Pro",
-    "slug": "lenovo-tab-p11-pro",
-    "category": "tablets",
-    "tags": [
-      "tag3",
-      "tag10"
-    ],
-    "description": "Lenovo Tab P11 Pro is a top-rated product in the tablets category.",
-    "price": 1196.89,
-    "images": [
-      "lenovo-tab-p11-pro-image5.jpg",
-      "lenovo-tab-p11-pro-image7.jpg"
-    ],
-    "createdAt": "2023-11-15T18:04:18.730332",
-    "ratingsAvg": 4.3,
-    "numRatings": 816
-  },
-  {
-    "title": "Dell Inspiron 3880",
-    "slug": "dell-inspiron-3880",
-    "category": "pcs",
-    "tags": [
-      "tag4",
-      "tag10"
-    ],
-    "description": "Dell Inspiron 3880 is a top-rated product in the pcs category.",
-    "price": 506.74,
-    "images": [
-      "dell-inspiron-3880-image1.jpg",
-      "dell-inspiron-3880-image7.jpg"
-    ],
-    "createdAt": "2024-05-18T18:04:18.730354",
-    "ratingsAvg": 5.4,
-    "numRatings": 788
-  },
-  {
-    "title": "Sony WH-1000XM4",
-    "slug": "sony-wh-1000xm4",
-    "category": "headphones",
-    "tags": [
-      "tag5",
-      "tag8"
-    ],
-    "description": "Sony WH-1000XM4 is a top-rated product in the headphones category.",
-    "price": 1165.23,
-    "images": [
-      "sony-wh-1000xm4-image5.jpg",
-      "sony-wh-1000xm4-image9.jpg"
-    ],
-    "createdAt": "2024-04-02T18:04:18.730375",
-    "ratingsAvg": 8.6,
-    "numRatings": 132
-  },
-  {
-    "title": "Roku Ultra",
-    "slug": "roku-ultra",
-    "category": "streamers",
-    "tags": [
-      "tag3",
-      "tag8"
-    ],
-    "description": "Roku Ultra is a top-rated product in the streamers category.",
-    "price": 761.12,
-    "images": [
-      "roku-ultra-image3.jpg",
-      "roku-ultra-image8.jpg"
-    ],
-    "createdAt": "2023-12-14T18:04:18.730395",
-    "ratingsAvg": 1.9,
-    "numRatings": 79
-  },
-  {
-    "title": "Apple MacBook Pro",
-    "slug": "apple-macbook-pro",
-    "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag9"
-    ],
-    "description": "Apple MacBook Pro is a top-rated product in the laptops category.",
-    "price": 363.64,
-    "images": [
-      "apple-macbook-pro-image1.jpg",
-      "apple-macbook-pro-image7.jpg"
-    ],
-    "createdAt": "2024-02-16T18:04:18.730407",
-    "ratingsAvg": 6.8,
-    "numRatings": 482
-  },
-  {
-    "title": "Apple AirPods Pro",
-    "slug": "apple-airpods-pro",
-    "category": "headphones",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Apple AirPods Pro is a top-rated product in the headphones category.",
-    "price": 1926.13,
-    "images": [
-      "apple-airpods-pro-image2.jpg",
-      "apple-airpods-pro-image6.jpg"
-    ],
-    "createdAt": "2023-09-26T18:04:18.730419",
-    "ratingsAvg": 3.9,
-    "numRatings": 708
-  },
-  {
-    "title": "Samsung Galaxy Watch 4",
-    "slug": "samsung-galaxy-watch-4",
-    "category": "smartwatches",
-    "tags": [
-      "tag5",
-      "tag7"
-    ],
-    "description": "Samsung Galaxy Watch 4 is a top-rated product in the smartwatches category.",
-    "price": 625.37,
-    "images": [
-      "samsung-galaxy-watch-4-image5.jpg",
-      "samsung-galaxy-watch-4-image9.jpg"
-    ],
-    "createdAt": "2023-12-22T18:04:18.730431",
-    "ratingsAvg": 7.1,
-    "numRatings": 395
-  },
-  {
-    "title": "Dell Inspiron 3880",
-    "slug": "dell-inspiron-3880",
-    "category": "pcs",
-    "tags": [
-      "tag3",
-      "tag7"
-    ],
-    "description": "Dell Inspiron 3880 is a top-rated product in the pcs category.",
-    "price": 1593.54,
-    "images": [
-      "dell-inspiron-3880-image2.jpg",
-      "dell-inspiron-3880-image8.jpg"
-    ],
-    "createdAt": "2023-11-05T18:04:18.730445",
-    "ratingsAvg": 8.8,
-    "numRatings": 928
-  },
-  {
-    "title": "Lenovo ThinkPad X1 Carbon",
-    "slug": "lenovo-thinkpad-x1-carbon",
-    "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Lenovo ThinkPad X1 Carbon is a top-rated product in the laptops category.",
-    "price": 195.28,
-    "images": [
-      "lenovo-thinkpad-x1-carbon-image5.jpg",
-      "lenovo-thinkpad-x1-carbon-image7.jpg"
-    ],
-    "createdAt": "2023-07-31T18:04:18.730464",
-    "ratingsAvg": 3.9,
-    "numRatings": 857
-  },
-  {
-    "title": "JBL Flip 5",
-    "slug": "jbl-flip-5",
-    "category": "sound",
-    "tags": [
-      "tag5",
-      "tag6"
-    ],
-    "description": "JBL Flip 5 is a top-rated product in the sound category.",
-    "price": 201.61,
-    "images": [
-      "jbl-flip-5-image5.jpg",
-      "jbl-flip-5-image7.jpg"
-    ],
-    "createdAt": "2023-07-13T18:04:18.730496",
-    "ratingsAvg": 7.0,
-    "numRatings": 844
-  },
-  {
-    "title": "Dell XPS 13",
-    "slug": "dell-xps-13",
-    "category": "laptops",
-    "tags": [
-      "tag2",
-      "tag8"
-    ],
-    "description": "Dell XPS 13 is a top-rated product in the laptops category.",
-    "price": 117.44,
-    "images": [
-      "dell-xps-13-image4.jpg",
-      "dell-xps-13-image7.jpg"
-    ],
-    "createdAt": "2023-06-04T18:04:18.730514",
-    "ratingsAvg": 7.3,
-    "numRatings": 574
-  },
-  {
-    "title": "Samsung Galaxy Tab S7",
-    "slug": "samsung-galaxy-tab-s7",
-    "category": "tablets",
-    "tags": [
-      "tag2",
-      "tag7"
-    ],
-    "description": "Samsung Galaxy Tab S7 is a top-rated product in the tablets category.",
-    "price": 694.7,
-    "images": [
-      "samsung-galaxy-tab-s7-image3.jpg",
-      "samsung-galaxy-tab-s7-image9.jpg"
-    ],
-    "createdAt": "2023-11-23T18:04:18.730530",
-    "ratingsAvg": 2.9,
-    "numRatings": 132
-  },
-  {
-    "title": "Xbox Series X",
-    "slug": "xbox-series-x",
-    "category": "consoles",
-    "tags": [
-      "tag1",
-      "tag8"
-    ],
-    "description": "Xbox Series X is a top-rated product in the consoles category.",
-    "price": 1959.4,
-    "images": [
-      "xbox-series-x-image4.jpg",
-      "xbox-series-x-image8.jpg"
-    ],
-    "createdAt": "2023-07-15T18:04:18.730549",
-    "ratingsAvg": 8.3,
-    "numRatings": 724
-  },
-  {
-    "title": "Asus ROG Zephyrus",
-    "slug": "asus-rog-zephyrus",
-    "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag10"
-    ],
-    "description": "Asus ROG Zephyrus is a top-rated product in the laptops category.",
-    "price": 553.52,
-    "images": [
-      "asus-rog-zephyrus-image1.jpg",
-      "asus-rog-zephyrus-image6.jpg"
-    ],
-    "createdAt": "2024-01-23T18:04:18.730569",
-    "ratingsAvg": 9.9,
-    "numRatings": 508
-  },
-  {
-    "title": "CyberPowerPC Gamer Xtreme",
-    "slug": "cyberpowerpc-gamer-xtreme",
-    "category": "pcs",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "CyberPowerPC Gamer Xtreme is a top-rated product in the pcs category.",
-    "price": 818.08,
-    "images": [
-      "cyberpowerpc-gamer-xtreme-image3.jpg",
-      "cyberpowerpc-gamer-xtreme-image10.jpg"
-    ],
-    "createdAt": "2023-08-23T18:04:18.730588",
-    "ratingsAvg": 5.4,
-    "numRatings": 1
-  },
-  {
-    "title": "Bose QuietComfort 35 II",
-    "slug": "bose-quietcomfort-35-ii",
-    "category": "headphones",
-    "tags": [
-      "tag2",
-      "tag10"
-    ],
-    "description": "Bose QuietComfort 35 II is a top-rated product in the headphones category.",
-    "price": 219.06,
-    "images": [
-      "bose-quietcomfort-35-ii-image3.jpg",
-      "bose-quietcomfort-35-ii-image9.jpg"
-    ],
-    "createdAt": "2024-01-15T18:04:18.730605",
-    "ratingsAvg": 4.9,
-    "numRatings": 784
-  },
-  {
-    "title": "Lenovo ThinkPad X1 Carbon",
-    "slug": "lenovo-thinkpad-x1-carbon",
-    "category": "laptops",
-    "tags": [
-      "tag2",
-      "tag6"
-    ],
-    "description": "Lenovo ThinkPad X1 Carbon is a top-rated product in the laptops category.",
-    "price": 902.1,
-    "images": [
-      "lenovo-thinkpad-x1-carbon-image3.jpg",
-      "lenovo-thinkpad-x1-carbon-image10.jpg"
-    ],
-    "createdAt": "2023-10-04T18:04:18.730616",
-    "ratingsAvg": 6.7,
-    "numRatings": 818
-  },
-  {
-    "title": "PlayStation 4 Pro",
-    "slug": "playstation-4-pro",
-    "category": "consoles",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "PlayStation 4 Pro is a top-rated product in the consoles category.",
-    "price": 570.15,
-    "images": [
-      "playstation-4-pro-image1.jpg",
-      "playstation-4-pro-image8.jpg"
-    ],
-    "createdAt": "2024-03-23T18:04:18.730627",
-    "ratingsAvg": 7.9,
-    "numRatings": 760
-  },
-  {
-    "title": "Asus ROG Zephyrus",
-    "slug": "asus-rog-zephyrus",
-    "category": "laptops",
-    "tags": [
-      "tag4",
-      "tag8"
-    ],
-    "description": "Asus ROG Zephyrus is a top-rated product in the laptops category.",
-    "price": 1279.94,
-    "images": [
-      "asus-rog-zephyrus-image3.jpg",
-      "asus-rog-zephyrus-image7.jpg"
-    ],
-    "createdAt": "2024-02-23T18:04:18.730645",
-    "ratingsAvg": 4.5,
-    "numRatings": 749
-  },
-  {
-    "title": "Sennheiser HD 660 S",
-    "slug": "sennheiser-hd-660-s",
-    "category": "headphones",
-    "tags": [
-      "tag2",
-      "tag9"
-    ],
-    "description": "Sennheiser HD 660 S is a top-rated product in the headphones category.",
-    "price": 1691.73,
-    "images": [
-      "sennheiser-hd-660-s-image3.jpg",
-      "sennheiser-hd-660-s-image9.jpg"
-    ],
-    "createdAt": "2024-02-21T18:04:18.730663",
-    "ratingsAvg": 7.4,
-    "numRatings": 757
-  },
-  {
-    "title": "Lenovo Tab P11 Pro",
-    "slug": "lenovo-tab-p11-pro",
-    "category": "tablets",
-    "tags": [
-      "tag3",
-      "tag9"
-    ],
-    "description": "Lenovo Tab P11 Pro is a top-rated product in the tablets category.",
-    "price": 1355.81,
-    "images": [
-      "lenovo-tab-p11-pro-image5.jpg",
-      "lenovo-tab-p11-pro-image6.jpg"
-    ],
-    "createdAt": "2023-11-09T18:04:18.730679",
-    "ratingsAvg": 8.6,
-    "numRatings": 51
-  },
-  {
-    "title": "Sennheiser HD 660 S",
-    "slug": "sennheiser-hd-660-s",
-    "category": "headphones",
-    "tags": [
-      "tag5",
-      "tag7"
-    ],
-    "description": "Sennheiser HD 660 S is a top-rated product in the headphones category.",
-    "price": 1136.68,
-    "images": [
-      "sennheiser-hd-660-s-image1.jpg",
-      "sennheiser-hd-660-s-image9.jpg"
-    ],
-    "createdAt": "2023-07-07T18:04:18.730697",
-    "ratingsAvg": 9.4,
-    "numRatings": 221
-  },
-  {
-    "title": "Asus ROG Zephyrus",
-    "slug": "asus-rog-zephyrus",
-    "category": "laptops",
-    "tags": [
-      "tag4",
-      "tag10"
-    ],
-    "description": "Asus ROG Zephyrus is a top-rated product in the laptops category.",
-    "price": 1528.66,
-    "images": [
-      "asus-rog-zephyrus-image3.jpg",
-      "asus-rog-zephyrus-image10.jpg"
-    ],
-    "createdAt": "2024-03-11T18:04:18.730716",
-    "ratingsAvg": 6.5,
-    "numRatings": 695
-  },
-  {
-    "title": "CyberPowerPC Gamer Xtreme",
-    "slug": "cyberpowerpc-gamer-xtreme",
-    "category": "pcs",
-    "tags": [
-      "tag4",
-      "tag9"
-    ],
-    "description": "CyberPowerPC Gamer Xtreme is a top-rated product in the pcs category.",
-    "price": 1560.38,
-    "images": [
-      "cyberpowerpc-gamer-xtreme-image4.jpg",
-      "cyberpowerpc-gamer-xtreme-image8.jpg"
-    ],
-    "createdAt": "2023-06-03T18:04:18.730735",
-    "ratingsAvg": 1.9,
-    "numRatings": 327
-  },
-  {
-    "title": "Alienware Aurora R12",
-    "slug": "alienware-aurora-r12",
-    "category": "pcs",
-    "tags": [
-      "tag4",
-      "tag6"
-    ],
-    "description": "Alienware Aurora R12 is a top-rated product in the pcs category.",
-    "price": 190.01,
-    "images": [
-      "alienware-aurora-r12-image4.jpg",
-      "alienware-aurora-r12-image8.jpg"
-    ],
-    "createdAt": "2023-05-29T18:04:18.730754",
-    "ratingsAvg": 3.8,
-    "numRatings": 2
-  },
-  {
-    "title": "HP Omen 30L",
-    "slug": "hp-omen-30l",
-    "category": "pcs",
-    "tags": [
-      "tag4",
-      "tag9"
-    ],
-    "description": "HP Omen 30L is a top-rated product in the pcs category.",
-    "price": 1638.98,
-    "images": [
-      "hp-omen-30l-image1.jpg",
-      "hp-omen-30l-image6.jpg"
-    ],
-    "createdAt": "2023-12-15T18:04:18.730773",
-    "ratingsAvg": 6.0,
-    "numRatings": 834
-  },
-  {
-    "title": "Microsoft Surface Pro 7",
-    "slug": "microsoft-surface-pro-7",
-    "category": "tablets",
-    "tags": [
-      "tag1",
-      "tag7"
-    ],
-    "description": "Microsoft Surface Pro 7 is a top-rated product in the tablets category.",
-    "price": 902.42,
-    "images": [
-      "microsoft-surface-pro-7-image4.jpg",
-      "microsoft-surface-pro-7-image9.jpg"
-    ],
-    "createdAt": "2023-08-21T18:04:18.730793",
-    "ratingsAvg": 2.1,
-    "numRatings": 746
-  },
-  {
-    "title": "Nintendo Switch",
-    "slug": "nintendo-switch",
-    "category": "consoles",
-    "tags": [
-      "tag4",
-      "tag7"
-    ],
-    "description": "Nintendo Switch is a top-rated product in the consoles category.",
-    "price": 490.93,
-    "images": [
-      "nintendo-switch-image3.jpg",
-      "nintendo-switch-image9.jpg"
-    ],
-    "createdAt": "2023-08-14T18:04:18.730809",
-    "ratingsAvg": 3.1,
-    "numRatings": 743
-  },
-  {
-    "title": "Apple TV 4K",
-    "slug": "apple-tv-4k",
-    "category": "streamers",
-    "tags": [
-      "tag3",
-      "tag8"
-    ],
-    "description": "Apple TV 4K is a top-rated product in the streamers category.",
-    "price": 442.76,
-    "images": [
-      "apple-tv-4k-image2.jpg",
-      "apple-tv-4k-image7.jpg"
-    ],
-    "createdAt": "2023-08-18T18:04:18.730822",
-    "ratingsAvg": 4.2,
-    "numRatings": 913
-  },
-  {
-    "title": "Nikon Z7 II",
-    "slug": "nikon-z7-ii",
-    "category": "cameras",
-    "tags": [
-      "tag2",
-      "tag8"
-    ],
-    "description": "Nikon Z7 II is a top-rated product in the cameras category.",
-    "price": 1314.34,
-    "images": [
-      "nikon-z7-ii-image3.jpg",
-      "nikon-z7-ii-image10.jpg"
-    ],
-    "createdAt": "2023-11-09T18:04:18.730833",
-    "ratingsAvg": 5.7,
-    "numRatings": 360
-  },
-  {
-    "title": "Bose Home Speaker 500",
-    "slug": "bose-home-speaker-500",
-    "category": "sound",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Bose Home Speaker 500 is a top-rated product in the sound category.",
-    "price": 354.19,
-    "images": [
-      "bose-home-speaker-500-image2.jpg",
-      "bose-home-speaker-500-image9.jpg"
-    ],
-    "createdAt": "2023-11-18T18:04:18.730847",
-    "ratingsAvg": 9.2,
-    "numRatings": 589
-  },
-  {
-    "title": "Amazon Fire TV Stick 4K",
-    "slug": "amazon-fire-tv-stick-4k",
-    "category": "streamers",
-    "tags": [
-      "tag4",
-      "tag9"
-    ],
-    "description": "Amazon Fire TV Stick 4K is a top-rated product in the streamers category.",
-    "price": 304.03,
-    "images": [
-      "amazon-fire-tv-stick-4k-image2.jpg",
-      "amazon-fire-tv-stick-4k-image10.jpg"
-    ],
-    "createdAt": "2024-04-20T18:04:18.730865",
-    "ratingsAvg": 7.0,
-    "numRatings": 942
-  },
-  {
-    "title": "NVIDIA Shield TV",
-    "slug": "nvidia-shield-tv",
-    "category": "streamers",
-    "tags": [
-      "tag1",
-      "tag10"
-    ],
-    "description": "NVIDIA Shield TV is a top-rated product in the streamers category.",
-    "price": 180.35,
-    "images": [
-      "nvidia-shield-tv-image4.jpg",
-      "nvidia-shield-tv-image10.jpg"
-    ],
-    "createdAt": "2023-11-25T18:04:18.730884",
-    "ratingsAvg": 8.1,
-    "numRatings": 847
-  },
-  {
-    "title": "Google Chromecast with Google TV",
-    "slug": "google-chromecast-with-google-tv",
-    "category": "streamers",
-    "tags": [
-      "tag1",
-      "tag10"
-    ],
-    "description": "Google Chromecast with Google TV is a top-rated product in the streamers category.",
-    "price": 1799.11,
-    "images": [
-      "google-chromecast-with-google-tv-image4.jpg",
-      "google-chromecast-with-google-tv-image9.jpg"
-    ],
-    "createdAt": "2023-09-08T18:04:18.730901",
-    "ratingsAvg": 1.1,
-    "numRatings": 926
-  },
-  {
-    "title": "Samsung Galaxy S21",
-    "slug": "samsung-galaxy-s21",
-    "category": "smartphones",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Samsung Galaxy S21 is a top-rated product in the smartphones category.",
-    "price": 1025.71,
-    "images": [
-      "samsung-galaxy-s21-image3.jpg",
-      "samsung-galaxy-s21-image10.jpg"
-    ],
-    "createdAt": "2023-12-23T18:04:18.730912",
-    "ratingsAvg": 3.6,
-    "numRatings": 655
-  },
-  {
-    "title": "Google Chromecast with Google TV",
-    "slug": "google-chromecast-with-google-tv",
-    "category": "streamers",
-    "tags": [
-      "tag4",
-      "tag6"
-    ],
-    "description": "Google Chromecast with Google TV is a top-rated product in the streamers category.",
-    "price": 1615.91,
-    "images": [
-      "google-chromecast-with-google-tv-image5.jpg",
-      "google-chromecast-with-google-tv-image7.jpg"
-    ],
-    "createdAt": "2023-09-04T18:04:18.730922",
-    "ratingsAvg": 4.2,
-    "numRatings": 204
-  },
-  {
-    "title": "Beats Studio3",
-    "slug": "beats-studio3",
-    "category": "headphones",
-    "tags": [
-      "tag4",
-      "tag7"
-    ],
-    "description": "Beats Studio3 is a top-rated product in the headphones category.",
-    "price": 1272.58,
-    "images": [
-      "beats-studio3-image3.jpg",
-      "beats-studio3-image6.jpg"
-    ],
-    "createdAt": "2023-11-19T18:04:18.730933",
-    "ratingsAvg": 1.8,
-    "numRatings": 297
-  },
-  {
-    "title": "Microsoft Surface Pro 7",
-    "slug": "microsoft-surface-pro-7",
-    "category": "tablets",
-    "tags": [
-      "tag3",
-      "tag7"
-    ],
-    "description": "Microsoft Surface Pro 7 is a top-rated product in the tablets category.",
-    "price": 1948.05,
-    "images": [
-      "microsoft-surface-pro-7-image5.jpg",
-      "microsoft-surface-pro-7-image9.jpg"
-    ],
-    "createdAt": "2023-06-18T18:04:18.730944",
-    "ratingsAvg": 6.2,
-    "numRatings": 307
-  },
-  {
-    "title": "Corsair One Pro",
-    "slug": "corsair-one-pro",
-    "category": "pcs",
-    "tags": [
-      "tag5",
-      "tag10"
-    ],
-    "description": "Corsair One Pro is a top-rated product in the pcs category.",
-    "price": 974.56,
-    "images": [
-      "corsair-one-pro-image4.jpg",
-      "corsair-one-pro-image9.jpg"
-    ],
-    "createdAt": "2024-05-22T18:04:18.730959",
-    "ratingsAvg": 3.4,
-    "numRatings": 163
-  },
-  {
-    "title": "Lenovo Tab P11 Pro",
-    "slug": "lenovo-tab-p11-pro",
-    "category": "tablets",
-    "tags": [
-      "tag4",
-      "tag10"
-    ],
-    "description": "Lenovo Tab P11 Pro is a top-rated product in the tablets category.",
-    "price": 64.74,
-    "images": [
-      "lenovo-tab-p11-pro-image2.jpg",
-      "lenovo-tab-p11-pro-image6.jpg"
-    ],
-    "createdAt": "2023-12-25T18:04:18.730979",
-    "ratingsAvg": 7.1,
-    "numRatings": 552
-  },
-  {
-    "title": "Bose QuietComfort 35 II",
-    "slug": "bose-quietcomfort-35-ii",
-    "category": "headphones",
-    "tags": [
-      "tag2",
-      "tag10"
-    ],
-    "description": "Bose QuietComfort 35 II is a top-rated product in the headphones category.",
-    "price": 489.28,
-    "images": [
-      "bose-quietcomfort-35-ii-image1.jpg",
-      "bose-quietcomfort-35-ii-image8.jpg"
-    ],
-    "createdAt": "2024-05-23T18:04:18.730991",
-    "ratingsAvg": 2.7,
-    "numRatings": 458
-  },
-  {
-    "title": "Sony WH-1000XM4",
-    "slug": "sony-wh-1000xm4",
-    "category": "headphones",
-    "tags": [
-      "tag5",
-      "tag8"
-    ],
-    "description": "Sony WH-1000XM4 is a top-rated product in the headphones category.",
-    "price": 258.0,
-    "images": [
-      "sony-wh-1000xm4-image1.jpg",
-      "sony-wh-1000xm4-image9.jpg"
-    ],
-    "createdAt": "2024-02-11T18:04:18.731002",
-    "ratingsAvg": 5.5,
-    "numRatings": 401
-  },
-  {
-    "title": "Beats Studio3",
-    "slug": "beats-studio3",
-    "category": "headphones",
-    "tags": [
-      "tag2",
-      "tag7"
-    ],
-    "description": "Beats Studio3 is a top-rated product in the headphones category.",
-    "price": 1840.43,
-    "images": [
-      "beats-studio3-image2.jpg",
-      "beats-studio3-image10.jpg"
-    ],
-    "createdAt": "2024-05-14T18:04:18.731013",
-    "ratingsAvg": 8.4,
-    "numRatings": 735
-  },
-  {
-    "title": "Bose QuietComfort 35 II",
-    "slug": "bose-quietcomfort-35-ii",
-    "category": "headphones",
-    "tags": [
-      "tag1",
-      "tag7"
-    ],
-    "description": "Bose QuietComfort 35 II is a top-rated product in the headphones category.",
-    "price": 487.14,
-    "images": [
-      "bose-quietcomfort-35-ii-image2.jpg",
-      "bose-quietcomfort-35-ii-image10.jpg"
-    ],
-    "createdAt": "2023-12-30T18:04:18.731024",
-    "ratingsAvg": 1.7,
-    "numRatings": 313
-  },
-  {
-    "title": "Alienware Aurora R12",
-    "slug": "alienware-aurora-r12",
-    "category": "pcs",
-    "tags": [
-      "tag3",
-      "tag10"
-    ],
-    "description": "Alienware Aurora R12 is a top-rated product in the pcs category.",
-    "price": 1552.66,
-    "images": [
-      "alienware-aurora-r12-image2.jpg",
-      "alienware-aurora-r12-image10.jpg"
-    ],
-    "createdAt": "2023-10-23T18:04:18.731036",
-    "ratingsAvg": 5.6,
-    "numRatings": 563
-  },
-  {
-    "title": "Dell Inspiron 3880",
-    "slug": "dell-inspiron-3880",
-    "category": "pcs",
-    "tags": [
-      "tag2",
-      "tag9"
-    ],
-    "description": "Dell Inspiron 3880 is a top-rated product in the pcs category.",
-    "price": 711.42,
-    "images": [
-      "dell-inspiron-3880-image4.jpg",
-      "dell-inspiron-3880-image6.jpg"
-    ],
-    "createdAt": "2024-05-08T18:04:18.731055",
-    "ratingsAvg": 6.2,
-    "numRatings": 866
-  },
-  {
-    "title": "Apple TV 4K",
-    "slug": "apple-tv-4k",
-    "category": "streamers",
-    "tags": [
-      "tag4",
-      "tag6"
-    ],
-    "description": "Apple TV 4K is a top-rated product in the streamers category.",
-    "price": 1023.93,
-    "images": [
-      "apple-tv-4k-image1.jpg",
-      "apple-tv-4k-image7.jpg"
-    ],
-    "createdAt": "2024-04-24T18:04:18.731069",
-    "ratingsAvg": 2.8,
-    "numRatings": 828
-  },
-  {
-    "title": "Dell XPS 13",
-    "slug": "dell-xps-13",
-    "category": "laptops",
-    "tags": [
-      "tag4",
-      "tag10"
-    ],
-    "description": "Dell XPS 13 is a top-rated product in the laptops category.",
-    "price": 300.59,
-    "images": [
-      "dell-xps-13-image1.jpg",
-      "dell-xps-13-image8.jpg"
-    ],
-    "createdAt": "2023-12-31T18:04:18.731080",
-    "ratingsAvg": 7.6,
-    "numRatings": 250
-  },
-  {
-    "title": "Asus ROG Zephyrus",
-    "slug": "asus-rog-zephyrus",
-    "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag9"
-    ],
-    "description": "Asus ROG Zephyrus is a top-rated product in the laptops category.",
-    "price": 1466.64,
-    "images": [
-      "asus-rog-zephyrus-image2.jpg",
-      "asus-rog-zephyrus-image10.jpg"
-    ],
-    "createdAt": "2023-10-21T18:04:18.731090",
-    "ratingsAvg": 8.9,
-    "numRatings": 814
-  },
-  {
-    "title": "PlayStation 4 Pro",
-    "slug": "playstation-4-pro",
-    "category": "consoles",
-    "tags": [
-      "tag2",
-      "tag9"
-    ],
-    "description": "PlayStation 4 Pro is a top-rated product in the consoles category.",
-    "price": 1198.08,
-    "images": [
-      "playstation-4-pro-image2.jpg",
-      "playstation-4-pro-image8.jpg"
-    ],
-    "createdAt": "2023-12-01T18:04:18.731101",
-    "ratingsAvg": 7.2,
-    "numRatings": 823
-  },
-  {
-    "title": "Xbox Series X",
-    "slug": "xbox-series-x",
-    "category": "consoles",
-    "tags": [
-      "tag5",
-      "tag6"
-    ],
-    "description": "Xbox Series X is a top-rated product in the consoles category.",
-    "price": 1353.28,
-    "images": [
-      "xbox-series-x-image3.jpg",
-      "xbox-series-x-image10.jpg"
-    ],
-    "createdAt": "2023-08-19T18:04:18.731113",
-    "ratingsAvg": 3.6,
-    "numRatings": 54
-  },
-  {
-    "title": "NVIDIA Shield TV",
-    "slug": "nvidia-shield-tv",
-    "category": "streamers",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "NVIDIA Shield TV is a top-rated product in the streamers category.",
-    "price": 1437.2,
-    "images": [
-      "nvidia-shield-tv-image4.jpg",
-      "nvidia-shield-tv-image6.jpg"
-    ],
-    "createdAt": "2023-12-18T18:04:18.731127",
-    "ratingsAvg": 4.2,
-    "numRatings": 247
-  },
-  {
-    "title": "Sony Alpha 7 III",
-    "slug": "sony-alpha-7-iii",
-    "category": "cameras",
-    "tags": [
-      "tag4",
-      "tag9"
-    ],
-    "description": "Sony Alpha 7 III is a top-rated product in the cameras category.",
-    "price": 726.93,
-    "images": [
-      "sony-alpha-7-iii-image2.jpg",
-      "sony-alpha-7-iii-image9.jpg"
-    ],
-    "createdAt": "2024-03-19T18:04:18.731146",
-    "ratingsAvg": 4.3,
-    "numRatings": 383
+    "tags": ["Dell", "Laptop", "XPS"],
+    "description": "Dell XPS 13 with Intel Core i7 processor.",
+    "price": 1299,
+    "image": {
+      "filename": "dell_xps_13.jpg",
+      "url": "/uploads/dell_xps_13.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
     "title": "iPhone 13 Pro",
-    "slug": "iphone-13-pro",
     "category": "smartphones",
-    "tags": [
-      "tag1",
-      "tag8"
-    ],
-    "description": "iPhone 13 Pro is a top-rated product in the smartphones category.",
-    "price": 1335.16,
-    "images": [
-      "iphone-13-pro-image4.jpg",
-      "iphone-13-pro-image8.jpg"
-    ],
-    "createdAt": "2024-04-06T18:04:18.731158",
-    "ratingsAvg": 5.3,
-    "numRatings": 582
+    "tags": ["Apple", "Smartphone", "iPhone"],
+    "description": "Apple iPhone 13 Pro with 128GB storage.",
+    "price": 999,
+    "image": {
+      "filename": "iphone_13_pro.jpg",
+      "url": "/uploads/iphone_13_pro.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
-    "title": "Microsoft Surface Pro 7",
-    "slug": "microsoft-surface-pro-7",
+    "title": "Samsung Galaxy S21",
+    "category": "smartphones",
+    "tags": ["Samsung", "Smartphone", "Galaxy"],
+    "description": "Samsung Galaxy S21 with 128GB storage.",
+    "price": 799,
+    "image": {
+      "filename": "galaxy_s21.jpg",
+      "url": "/uploads/galaxy_s21.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Sony WH-1000XM4",
+    "category": "headphones",
+    "tags": ["Sony", "Headphones", "Noise-Cancelling"],
+    "description": "Sony WH-1000XM4 Wireless Noise-Cancelling Headphones.",
+    "price": 349,
+    "image": {
+      "filename": "sony_wh_1000xm4.jpg",
+      "url": "/uploads/sony_wh_1000xm4.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Bose QuietComfort 35 II",
+    "category": "headphones",
+    "tags": ["Bose", "Headphones", "Noise-Cancelling"],
+    "description": "Bose QuietComfort 35 II Wireless Bluetooth Headphones.",
+    "price": 299,
+    "image": {
+      "filename": "bose_qc35_ii.jpg",
+      "url": "/uploads/bose_qc35_ii.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Apple Watch Series 7",
+    "category": "smartwatches",
+    "tags": ["Apple", "Smartwatch", "Watch"],
+    "description": "Apple Watch Series 7 with GPS.",
+    "price": 399,
+    "image": {
+      "filename": "apple_watch_series_7.jpg",
+      "url": "/uploads/apple_watch_series_7.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Samsung Galaxy Watch 4",
+    "category": "smartwatches",
+    "tags": ["Samsung", "Smartwatch", "Galaxy"],
+    "description": "Samsung Galaxy Watch 4 with ECG Monitor.",
+    "price": 249,
+    "image": {
+      "filename": "galaxy_watch_4.jpg",
+      "url": "/uploads/galaxy_watch_4.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "iPad Pro 12.9-inch",
     "category": "tablets",
-    "tags": [
-      "tag5",
-      "tag10"
-    ],
-    "description": "Microsoft Surface Pro 7 is a top-rated product in the tablets category.",
-    "price": 1642.25,
-    "images": [
-      "microsoft-surface-pro-7-image4.jpg",
-      "microsoft-surface-pro-7-image9.jpg"
-    ],
-    "createdAt": "2023-11-09T18:04:18.731169",
-    "ratingsAvg": 10.0,
-    "numRatings": 43
-  },
-  {
-    "title": "PlayStation 4 Pro",
-    "slug": "playstation-4-pro",
-    "category": "consoles",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "PlayStation 4 Pro is a top-rated product in the consoles category.",
-    "price": 534.14,
-    "images": [
-      "playstation-4-pro-image4.jpg",
-      "playstation-4-pro-image8.jpg"
-    ],
-    "createdAt": "2023-10-03T18:04:18.731181",
-    "ratingsAvg": 5.2,
-    "numRatings": 306
-  },
-  {
-    "title": "Roku Ultra",
-    "slug": "roku-ultra",
-    "category": "streamers",
-    "tags": [
-      "tag2",
-      "tag10"
-    ],
-    "description": "Roku Ultra is a top-rated product in the streamers category.",
-    "price": 205.3,
-    "images": [
-      "roku-ultra-image3.jpg",
-      "roku-ultra-image9.jpg"
-    ],
-    "createdAt": "2024-01-29T18:04:18.731198",
-    "ratingsAvg": 8.8,
-    "numRatings": 210
-  },
-  {
-    "title": "Dell Inspiron 3880",
-    "slug": "dell-inspiron-3880",
-    "category": "pcs",
-    "tags": [
-      "tag1",
-      "tag10"
-    ],
-    "description": "Dell Inspiron 3880 is a top-rated product in the pcs category.",
-    "price": 781.78,
-    "images": [
-      "dell-inspiron-3880-image2.jpg",
-      "dell-inspiron-3880-image10.jpg"
-    ],
-    "createdAt": "2024-02-17T18:04:18.731215",
-    "ratingsAvg": 2.0,
-    "numRatings": 152
-  },
-  {
-    "title": "Panasonic Lumix GH5",
-    "slug": "panasonic-lumix-gh5",
-    "category": "cameras",
-    "tags": [
-      "tag3",
-      "tag6"
-    ],
-    "description": "Panasonic Lumix GH5 is a top-rated product in the cameras category.",
-    "price": 1146.05,
-    "images": [
-      "panasonic-lumix-gh5-image5.jpg",
-      "panasonic-lumix-gh5-image10.jpg"
-    ],
-    "createdAt": "2024-04-12T18:04:18.731233",
-    "ratingsAvg": 6.6,
-    "numRatings": 900
-  },
-  {
-    "title": "Amazfit GTS 2",
-    "slug": "amazfit-gts-2",
-    "category": "smartwatches",
-    "tags": [
-      "tag4",
-      "tag6"
-    ],
-    "description": "Amazfit GTS 2 is a top-rated product in the smartwatches category.",
-    "price": 115.18,
-    "images": [
-      "amazfit-gts-2-image1.jpg",
-      "amazfit-gts-2-image6.jpg"
-    ],
-    "createdAt": "2023-12-10T18:04:18.731251",
-    "ratingsAvg": 9.3,
-    "numRatings": 581
-  },
-  {
-    "title": "Garmin Forerunner 945",
-    "slug": "garmin-forerunner-945",
-    "category": "smartwatches",
-    "tags": [
-      "tag3",
-      "tag7"
-    ],
-    "description": "Garmin Forerunner 945 is a top-rated product in the smartwatches category.",
-    "price": 1698.26,
-    "images": [
-      "garmin-forerunner-945-image5.jpg",
-      "garmin-forerunner-945-image10.jpg"
-    ],
-    "createdAt": "2023-08-13T18:04:18.731265",
-    "ratingsAvg": 2.7,
-    "numRatings": 868
-  },
-  {
-    "title": "Sony Alpha 7 III",
-    "slug": "sony-alpha-7-iii",
-    "category": "cameras",
-    "tags": [
-      "tag2",
-      "tag7"
-    ],
-    "description": "Sony Alpha 7 III is a top-rated product in the cameras category.",
-    "price": 706.39,
-    "images": [
-      "sony-alpha-7-iii-image4.jpg",
-      "sony-alpha-7-iii-image8.jpg"
-    ],
-    "createdAt": "2024-01-19T18:04:18.731275",
-    "ratingsAvg": 8.7,
-    "numRatings": 89
-  },
-  {
-    "title": "Garmin Forerunner 945",
-    "slug": "garmin-forerunner-945",
-    "category": "smartwatches",
-    "tags": [
-      "tag1",
-      "tag10"
-    ],
-    "description": "Garmin Forerunner 945 is a top-rated product in the smartwatches category.",
-    "price": 676.32,
-    "images": [
-      "garmin-forerunner-945-image4.jpg",
-      "garmin-forerunner-945-image8.jpg"
-    ],
-    "createdAt": "2023-11-30T18:04:18.731286",
-    "ratingsAvg": 2.7,
-    "numRatings": 203
-  },
-  {
-    "title": "Lenovo ThinkPad X1 Carbon",
-    "slug": "lenovo-thinkpad-x1-carbon",
-    "category": "laptops",
-    "tags": [
-      "tag2",
-      "tag6"
-    ],
-    "description": "Lenovo ThinkPad X1 Carbon is a top-rated product in the laptops category.",
-    "price": 1781.72,
-    "images": [
-      "lenovo-thinkpad-x1-carbon-image2.jpg",
-      "lenovo-thinkpad-x1-carbon-image10.jpg"
-    ],
-    "createdAt": "2023-11-27T18:04:18.731304",
-    "ratingsAvg": 9.8,
-    "numRatings": 619
-  },
-  {
-    "title": "Lenovo ThinkPad X1 Carbon",
-    "slug": "lenovo-thinkpad-x1-carbon",
-    "category": "laptops",
-    "tags": [
-      "tag3",
-      "tag7"
-    ],
-    "description": "Lenovo ThinkPad X1 Carbon is a top-rated product in the laptops category.",
-    "price": 609.63,
-    "images": [
-      "lenovo-thinkpad-x1-carbon-image1.jpg",
-      "lenovo-thinkpad-x1-carbon-image6.jpg"
-    ],
-    "createdAt": "2023-09-21T18:04:18.731321",
-    "ratingsAvg": 8.7,
-    "numRatings": 159
+    "tags": ["Apple", "Tablet", "iPad"],
+    "description": "Apple iPad Pro 12.9-inch with M1 chip.",
+    "price": 1099,
+    "image": {
+      "filename": "ipad_pro_12_9.jpg",
+      "url": "/uploads/ipad_pro_12_9.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
     "title": "Samsung Galaxy Tab S7",
-    "slug": "samsung-galaxy-tab-s7",
     "category": "tablets",
-    "tags": [
-      "tag5",
-      "tag9"
-    ],
-    "description": "Samsung Galaxy Tab S7 is a top-rated product in the tablets category.",
-    "price": 1186.05,
-    "images": [
-      "samsung-galaxy-tab-s7-image4.jpg",
-      "samsung-galaxy-tab-s7-image8.jpg"
-    ],
-    "createdAt": "2023-07-09T18:04:18.731340",
-    "ratingsAvg": 7.7,
-    "numRatings": 411
+    "tags": ["Samsung", "Tablet", "Galaxy"],
+    "description": "Samsung Galaxy Tab S7 with S Pen.",
+    "price": 649,
+    "image": {
+      "filename": "galaxy_tab_s7.jpg",
+      "url": "/uploads/galaxy_tab_s7.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
-    "title": "Nikon Z7 II",
-    "slug": "nikon-z7-ii",
+    "title": "HP Pavilion Desktop",
+    "category": "pcs",
+    "tags": ["HP", "PC", "Desktop"],
+    "description": "HP Pavilion Desktop with AMD Ryzen 7 processor.",
+    "price": 749,
+    "image": {
+      "filename": "hp_pavilion_desktop.jpg",
+      "url": "/uploads/hp_pavilion_desktop.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Dell Inspiron Desktop",
+    "category": "pcs",
+    "tags": ["Dell", "PC", "Desktop"],
+    "description": "Dell Inspiron Desktop with Intel Core i5 processor.",
+    "price": 699,
+    "image": {
+      "filename": "dell_inspiron_desktop.jpg",
+      "url": "/uploads/dell_inspiron_desktop.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "PlayStation 5",
+    "category": "consoles",
+    "tags": ["Sony", "Console", "PS5"],
+    "description": "Sony PlayStation 5 Console.",
+    "price": 499,
+    "image": {
+      "filename": "ps5.jpg",
+      "url": "/uploads/ps5.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Xbox Series X",
+    "category": "consoles",
+    "tags": ["Microsoft", "Console", "Xbox"],
+    "description": "Microsoft Xbox Series X Console.",
+    "price": 499,
+    "image": {
+      "filename": "xbox_series_x.jpg",
+      "url": "/uploads/xbox_series_x.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Sonos One",
+    "category": "sound",
+    "tags": ["Sonos", "Speaker", "Sound"],
+    "description": "Sonos One Smart Speaker.",
+    "price": 199,
+    "image": {
+      "filename": "sonos_one.jpg",
+      "url": "/uploads/sonos_one.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Bose SoundLink Revolve",
+    "category": "sound",
+    "tags": ["Bose", "Speaker", "Sound"],
+    "description": "Bose SoundLink Revolve Bluetooth Speaker.",
+    "price": 179,
+    "image": {
+      "filename": "bose_soundlink_revolve.jpg",
+      "url": "/uploads/bose_soundlink_revolve.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Canon EOS R5",
     "category": "cameras",
-    "tags": [
-      "tag5",
-      "tag9"
-    ],
-    "description": "Nikon Z7 II is a top-rated product in the cameras category.",
-    "price": 1243.48,
-    "images": [
-      "nikon-z7-ii-image5.jpg",
-      "nikon-z7-ii-image7.jpg"
-    ],
-    "createdAt": "2023-12-12T18:04:18.731360",
-    "ratingsAvg": 4.4,
-    "numRatings": 539
+    "tags": ["Canon", "Camera", "Mirrorless"],
+    "description": "Canon EOS R5 Mirrorless Camera with 45MP Full-Frame Sensor.",
+    "price": 3899,
+    "image": {
+      "filename": "canon_eos_r5.jpg",
+      "url": "/uploads/canon_eos_r5.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Sony Alpha a7 III",
+    "category": "cameras",
+    "tags": ["Sony", "Camera", "Mirrorless"],
+    "description": "Sony Alpha a7 III Mirrorless Camera with 24.2MP Full-Frame Sensor.",
+    "price": 1999,
+    "image": {
+      "filename": "sony_alpha_a7_iii.jpg",
+      "url": "/uploads/sony_alpha_a7_iii.jpg",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "title": "Elgato Stream Deck",
+    "category": "streamers",
+    "tags": ["Elgato", "Streaming", "Deck"],
+    "description": "Elgato Stream Deck Live Content Creation Controller.",
+    "price": 149,
+    "image": {
+      "filename": "elgato_stream_deck.jpg",
+      "url": "/uploads/elgato_stream_deck.jpg",
+      "contentType": "image/jpeg"
+    }
   }
 ]

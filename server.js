@@ -18,7 +18,7 @@ const DB = process.env.DATABASE.replace(
 
 // Make a connection to mongoDB
 mongoose
-  .connect(DB)
+  .connect(DB, { useNewUrlParser: true })
   .then((con) => console.log('Successfully connected to database'));
 
 // Define port

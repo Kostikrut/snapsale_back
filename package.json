@@ -8,8 +8,8 @@
     "dev": "NODE_ENV=development nodemon server.js",
     "build": "parcel build server.js --target main",
     "start-bundle": "node dist/index.js",
-    "importdb": "node ./dev-data/data/import-dev-data.js --import",
-    "deletedb": "node ./dev-data/data/import-dev-data.js --delete"
+    "importdb": "node ./dev-data/import-dev-data.js --import",
+    "deletedb": "node ./dev-data/import-dev-data.js --delete"
   },
   "author": "Konstantin Rutman",
   "license": "ISC",

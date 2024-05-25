@@ -101,8 +101,6 @@ exports.catchOrder = catchAsync(async (req, res, next) => {
   const { orderID, id: invoiceID } = req.params;
   const { jsonResponse, httpStatusCode } = await captureOrder(orderID);
 
-  // console.log(req.user.id);
-
   if (!jsonResponse || !httpStatusCode)
     return next(new AppError('Failed to capture order.', 500));
 

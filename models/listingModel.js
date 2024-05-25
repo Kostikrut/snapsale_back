@@ -59,6 +59,7 @@ listingSchema.index({ price: 1, slug: 1 });
 // Make a slug for the listing
 listingSchema.pre('save', function (next) {
   this.slug = slugify(this.title, { lower: true });
+
   next();
 });
 
