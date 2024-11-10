@@ -8,21 +8,30 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
 const compression = require('compression');
+// const multer = require('multer');
 
+// const { uploadImage, getImageUrl } = require('./utils/S3ImageUpload');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const listingRouter = require('./routes/listingRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const invoiceRouter = require('./routes/invoiceRoutes');
+const categoryRouter = require('./routes/categoryRoutes');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', cors(), express.static(path.join(__dirname, 'uploads')));
 
-app.use(cors());
-app.options('*', cors());
+app.use(
+  cors({
+    origin: ['http://127.0.0.1:3000', process.env.APP_URL],
+  })
+);
+
+app.get('/uploads/:image', (req, res) => {
+  res.sendFile(__dirname + `/uploads/${req.params.image}`);
+});
 
 // Set security http headers
 app.use(helmet());
@@ -34,14 +43,16 @@ if (process.env.NODE_ENV === 'development') {
 
 // Limit too many requests from the same API
 const limiter = rateLimit({
-  max: 200,
+  max: 3000,
   windowMs: 60 * 60 * 1000,
   message: 'To many requests from this IP, please try again in an hour.',
 });
 app.use('/api', limiter);
 
 // Body parser - get the body from the request
-app.use(express.json({ limit: '10kb' }));
+app.use(express.json({ limit: '1mb' }));
+
+app.use(express.urlencoded({ extended: true }));
 
 // Data sanitization against noSQL query injection
 app.use(mongoSanitize());
@@ -58,6 +69,7 @@ app.use('/api/v1/listings', listingRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/invoices', invoiceRouter);
+app.use('/api/v1/categories', categoryRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

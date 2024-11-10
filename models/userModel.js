@@ -6,8 +6,13 @@ const crypto = require('crypto');
 const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
-    required: [true, 'Please tell us your name'],
-    trim: true,
+    required: [true, 'Please provide your full name'],
+    validate: {
+      validator: function (v) {
+        return /^[a-zA-Z\s]+$/.test(v); // Ensure no numbers in full name
+      },
+      message: 'Full name should not contain numbers.',
+    },
   },
   email: {
     type: String,
@@ -22,12 +27,33 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: [true, 'Please tell us your phone number'],
   },
+  address: {
+    city: {
+      type: String,
+      required: [true, 'Please provide a city'],
+    },
+    address: {
+      type: String,
+      required: [true, 'Please provide an address'],
+    },
+    apartment: {
+      type: String,
+      required: [true, 'Please provide an apartment number'],
+    },
+    zipCode: {
+      type: String,
+      required: [true, 'Please provide a zip code'],
+    },
+  },
   role: {
     type: String,
     enum: ['admin', 'moderator', 'user', 'maintainer'],
     default: 'user',
   },
-  photo: String,
+  image: {
+    filename: String,
+    url: String,
+  },
   password: {
     type: String,
     required: [true, 'Please provide a password'],
@@ -50,7 +76,6 @@ const userSchema = new mongoose.Schema({
   isActive: {
     type: Boolean,
     default: true,
-    select: false,
   },
 });
 
@@ -59,8 +84,8 @@ userSchema.pre('save', async function (next) {
   // only run this funtion if the password has beenn modified
   if (!this.isModified('password')) return next();
 
-  this.password = await bcrypt.hash(this.password, 12); // hashing the password
-  this.passwordConfirm = undefined; // clearing the password confirm field before saving the doc
+  this.password = await bcrypt.hash(this.password, 12);
+  this.passwordConfirm = undefined;
 
   next();
 });

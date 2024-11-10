@@ -1,36 +1,42 @@
 const express = require('express');
 const invoiceController = require('./../controllers/invoiceController');
 const authController = require('./../controllers/authController');
-const ordersController = require('./../controllers/ordersController');
+const checkoutController = require('../controllers/checkoutController');
 
 const router = express.Router();
 
 router
-  .route('/')
+  .route('/:id/retrieveCheckoutAndUpdateInvoice')
+  .get(checkoutController.retrieveCheckoutAndUpdateInvoice);
+
+router.use(authController.protect);
+
+router
+  .route('/getPurchaseHistory')
   .get(
-    authController.protect,
-    authController.restrictTo('admin', 'user'),
-    invoiceController.getInvoice
-  )
-  .post(
-    authController.protect,
     invoiceController.getInvoiceUserId,
-    invoiceController.createInvoice
+    invoiceController.getPurchaseHistory
   );
+
+router
+  .route('/')
+  .post(invoiceController.getInvoiceUserId, invoiceController.createInvoice);
 
 router
   .route('/:id')
-  .delete(
-    authController.protect,
-    authController.restrictTo('admin'),
-    invoiceController.deleteInvoice
-  );
+  .get(authController.restrictTo('admin', 'user'), invoiceController.getInvoice)
+  .delete(authController.restrictTo('admin'), invoiceController.deleteInvoice);
 
 router
-  .route('/:id/orders')
-  .post(authController.protect, ordersController.placeOrder);
+  .route('/:id/createCheckoutSession')
+  .post(checkoutController.createCheckoutSession);
+
 router
-  .route('/:id/orders/:orderID/capture')
-  .post(authController.protect, ordersController.catchOrder);
+
+  .route('/:id/updateAddressAndShipping')
+  .patch(
+    invoiceController.getInvoiceUserId,
+    invoiceController.updateAddressAndShipping
+  );
 
 module.exports = router;

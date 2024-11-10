@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+const Listing = require('./listingModel');
+const AppError = require('../utils/appError');
+
 const invoiceSchema = new mongoose.Schema(
   {
     user: {
@@ -8,9 +11,18 @@ const invoiceSchema = new mongoose.Schema(
       required: [true, 'Invoice must belong to a user.'],
     },
     listings: {
-      type: [mongoose.Schema.ObjectId],
+      type: Array,
       ref: 'Listing',
       required: [true, 'Invoice must have at least one listing.'],
+    },
+    shippingOpt: {
+      shippingType: {
+        type: String,
+        enum: ['standard', 'express', 'store'],
+      },
+      address: {
+        type: String,
+      },
     },
     totalPrice: {
       type: Number,
@@ -34,14 +46,20 @@ const invoiceSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['pending', 'canceled', 'rejected', 'approved'],
+      enum: ['pending', 'canceled', 'complete'],
       default: 'pending',
+    },
+    reviewLeft: {
+      type: [mongoose.Schema.ObjectId],
+      ref: 'Listing',
     },
     createdAt: {
       type: Date,
       default: Date.now,
     },
+    checkoutSessionId: String,
   },
+
   {
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
@@ -49,25 +67,49 @@ const invoiceSchema = new mongoose.Schema(
 );
 
 // Calculate total price
-invoiceSchema.post('save', async function (doc) {
-  await doc
-    .populate({
-      path: 'listings',
-      select: 'price title',
-    })
-    .execPopulate();
+invoiceSchema.pre('save', async function (next) {
+  try {
+    let totalListingsPrice = 0;
 
-  const totalListingsPrice = doc.listings.reduce(
-    (total, listing) => total + listing.price,
-    0
-  );
+    for (const item of this.listings) {
+      const listing = await Listing.findById(item._id);
+      if (!listing) {
+        return next(
+          new AppError(`Listing with an id of ${item.listingId} not found`, 404)
+        );
+      }
 
-  doc.totalPrice = (
-    totalListingsPrice -
-    totalListingsPrice * doc.discount
-  ).toFixed(2);
+      const variantsTotalPrice = item.variants.reduce((acc, variant) => {
+        return acc + Number(variant.price);
+      }, 0);
 
-  await Invoice.updateOne({ _id: doc._id }, { totalPrice: doc.totalPrice });
+      const listingTotalPrice =
+        (Number(listing.price) + Number(variantsTotalPrice)) * item.amount;
+
+      totalListingsPrice += listingTotalPrice;
+    }
+
+    let shippingPrice = 0;
+    const standardShippingPrice =
+      Number(process.env.STANDARD_SHIPPING_PRICE) || 5;
+    const expressShippingPrice = Number(
+      process.env.EXPRESS_SHIPPING_PRICE || 10
+    );
+    if (this.shippingOpt.shippingType === 'standard')
+      shippingPrice = standardShippingPrice;
+    if (this.shippingOpt.shippingType === 'express')
+      shippingPrice = expressShippingPrice;
+
+    this.totalPrice = (
+      shippingPrice +
+      totalListingsPrice -
+      totalListingsPrice * this.discount
+    ).toFixed(2);
+
+    next();
+  } catch (error) {
+    next(error);
+  }
 });
 
 const Invoice = mongoose.model('Invoice', invoiceSchema);

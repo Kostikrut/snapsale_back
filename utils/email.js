@@ -13,7 +13,7 @@ const sendEmail = async (options) => {
 
   // 2) define email options
   const emailOptions = {
-    from: 'BlastBid admin <admin@blastbid.com>',
+    from: 'SnapSale admin <admin@SnapSale.com>',
     to: options.email,
     subject: options.subject,
     text: options.message,

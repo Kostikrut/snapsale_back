@@ -54,6 +54,7 @@ module.exports = (err, req, res, next) => {
   if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
 
+    if (err.code === 11000) error = handleCastErrorDB(error); //handle duplicate keys
     if (err.name === 'CastError') error = handleCastErrorDB(error); //handle invalid id query
     if (err.name === 'ValidationError') error = handleValidationErrorDB(error); // handle validation error
     if (err.name === 'JsonWebTokenError') error = handleJWTError(error); // handle incorrect jwt

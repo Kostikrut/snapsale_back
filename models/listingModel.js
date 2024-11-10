@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const crypto = require('crypto');
 
 const listingSchema = new mongoose.Schema(
   {
+    brand: {
+      type: String,
+      required: [true, 'A listing must have a brand'],
+    },
     title: {
       type: String,
       trim: true,
@@ -28,11 +31,13 @@ const listingSchema = new mongoose.Schema(
     },
     image: {
       filename: String,
-      url: String,
-      contentType: String,
     },
+    variants: {
+      type: [Object],
+    },
+
     createdAt: {
-      type: Date,
+      type: String,
       default: Date.now(),
     },
     ratingsAvg: {
@@ -50,20 +55,18 @@ const listingSchema = new mongoose.Schema(
   {
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
+    versionKey: false,
   }
 );
 
-// index the most queried fields
-listingSchema.index({ price: 1, slug: 1 });
+listingSchema.index({ price: 1, slug: 1, title: 'text' });
 
-// Make a slug for the listing
 listingSchema.pre('save', function (next) {
   this.slug = slugify(this.title, { lower: true });
 
   next();
 });
 
-// populate reviews for the current listing
 listingSchema.virtual('reviews', {
   ref: 'Review',
   foreignField: 'listing',

@@ -2,8 +2,8 @@ const User = require('./../models/userModel');
 const Invoice = require('./../models/invoiceModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
-// const createSendToken = require('./../controllers/authController');
 const factory = require('./handleFactory');
+const { uploadImage, getImageUrl } = require('../utils//S3ImageUpload');
 
 const filterObj = function (bodyObj, allowedFieldsArr) {
   const newBodyObj = {};
@@ -16,7 +16,6 @@ const filterObj = function (bodyObj, allowedFieldsArr) {
 };
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  // 1) Create an error if user posts password data
   if (req.body.password || req.body.passwordConfirm)
     return next(
       new AppError(
@@ -25,16 +24,31 @@ exports.updateMe = catchAsync(async (req, res, next) => {
       )
     );
 
+  const imageName = await uploadImage(req.file);
+
+  if (!imageName)
+    return next(
+      new AppError(
+        'Failed to upload an image, please make sure that the file is an image.',
+        500
+      )
+    );
+
+  const image = { filename: imageName };
+
   // 2) Filter out unwanted fields
   const filteredBody = filterObj(req.body, [
     'fullName',
     'email',
     'phone',
-    'location',
+    'image',
+    'address',
   ]);
 
+  filteredBody.image = image;
+
   // 3) Update user doc
-  const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
+  const updatedUser = await User.findByIdAndUpdate(req.user._id, filteredBody, {
     new: true,
     runValidators: true,
   });
@@ -81,7 +95,7 @@ exports.getMe = (req, res, next) => {
   next();
 };
 
-exports.getPurchaseHistory = catchAsync(async (req, res) => {
+exports.getPurchaseHistory = catchAsync(async (req, res, next) => {
   const userId = req.user._id;
 
   const purchases = await Invoice.find({
@@ -92,19 +106,81 @@ exports.getPurchaseHistory = catchAsync(async (req, res) => {
     select: 'price title images',
   });
 
-  if (!purchases)
-    return res.status(200).json({
-      status: 'success',
-      message: 'No purchases found.',
-    });
+  if (!purchases) return next(new AppError('No purchases found.', 404));
+  return res.status(200).json({
+    status: 'success',
+    data: { purchases },
+  });
+});
+
+exports.getAllUsers = catchAsync(async (req, res, next) => {
+  const filter = {};
+  let users;
+
+  if (req.query.fullName) {
+    filter.fullName = { $regex: new RegExp(req.query.fullName, 'i') };
+  }
+
+  if (req.query.email) {
+    filter.email = { $regex: new RegExp(req.query.email, 'i') };
+  }
+
+  if (req.query.phone) {
+    filter.phone = req.query.phone;
+  }
+
+  if (req.user.role === 'admin') {
+    users = await User.find(filter).select('-__v');
+  } else {
+    users = await User.find(filter)
+      .select('-__v')
+      .select('-isActive -passwordChangedAt');
+  }
+
+  for (let user of users) {
+    if (user.image.filename) {
+      user.image.url = await getImageUrl(user.image.filename);
+    } else {
+      user.image.url = await getImageUrl('placeholder_profile_picture.jpeg');
+    }
+  }
+
+  console.log(users);
 
   return res.status(200).json({
     status: 'success',
-    data: { userId, purchases },
+    results: users.length,
+    data: {
+      users,
+    },
+  });
+});
+
+exports.updateUser = catchAsync(async (req, res, next) => {
+  const { fullName, email, phone, role } = req.body;
+  const updateObj = { fullName, email, phone, role };
+  let image, imageName;
+
+  if (req.file) {
+    imageName = await uploadImage(req.file.buffer);
+    image = { filename: imageName };
+    updateObj.image = image;
+  }
+
+  const user = await User.findByIdAndUpdate(req.params.id, updateObj, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!user) {
+    return next(new AppError('No document found with that Id', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: { user },
   });
 });
 
 exports.getUser = factory.getOne(User);
-exports.getAllUsers = factory.getAll(User);
-exports.updateUser = factory.updateOne(User); // not for updating password.
 exports.deleteUser = factory.deleteOne(User); // admin only or the user himself
