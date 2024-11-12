@@ -3,6 +3,7 @@ const catchAsync = require('../utils/catchAsync');
 const Invoice = require('../models/invoiceModel');
 const Listing = require('../models/listingModel');
 const AppError = require('../utils/appError');
+const { sendCheckoutEmail } = require('../utils/email');
 
 exports.createCheckoutSession = catchAsync(async (req, res, next) => {
   const invoice = await Invoice.findById(req.params.id);
@@ -76,6 +77,8 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     },
     { new: true }
   );
+
+  await sendCheckoutEmail(invoice);
 
   res.status(201).json({
     status: 'success',
