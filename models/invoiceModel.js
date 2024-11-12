@@ -8,7 +8,36 @@ const invoiceSchema = new mongoose.Schema(
     user: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
-      required: [true, 'Invoice must belong to a user.'],
+      // required: [true, 'Invoice must belong to a user.'],
+    },
+    guestInfo: {
+      fullName: {
+        type: String,
+        required: [
+          function () {
+            return !this.user;
+          },
+          'Full name is required for guest checkout.',
+        ],
+      },
+      phone: {
+        type: String,
+        required: [
+          function () {
+            return !this.user;
+          },
+          'Phone number is required for guest checkout.',
+        ],
+      },
+      email: {
+        type: String,
+        required: [
+          function () {
+            return !this.user;
+          },
+          'Email is required for guest checkout.',
+        ],
+      },
     },
     listings: {
       type: Array,
@@ -95,6 +124,7 @@ invoiceSchema.pre('save', async function (next) {
     const expressShippingPrice = Number(
       process.env.EXPRESS_SHIPPING_PRICE || 10
     );
+
     if (this.shippingOpt.shippingType === 'standard')
       shippingPrice = standardShippingPrice;
     if (this.shippingOpt.shippingType === 'express')

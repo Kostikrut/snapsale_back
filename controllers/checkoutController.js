@@ -59,15 +59,17 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     });
   }
 
+  const customerEmail = req?.user?.email || invoice.guestInfo.email;
+
   const session = await stripe.checkout.sessions.create({
     line_items: items,
     mode: 'payment',
-    customer_email: req.user.email,
+    customer_email: customerEmail,
     success_url: `${process.env.APP_URL}/paymentSuccess?invoice=${invoice.id}`,
     cancel_url: `${process.env.APP_URL}/cart`,
   });
 
-  const updatedSession = await Invoice.findByIdAndUpdate(
+  await Invoice.findByIdAndUpdate(
     req.params.id,
     {
       checkoutSessionId: session.id,

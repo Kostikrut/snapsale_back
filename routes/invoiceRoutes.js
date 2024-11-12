@@ -9,6 +9,11 @@ router
   .route('/:id/retrieveCheckoutAndUpdateInvoice')
   .get(checkoutController.retrieveCheckoutAndUpdateInvoice);
 
+router.route('/guest').post(invoiceController.createGuestInvoice);
+router
+  .route('/:id/createCheckoutSession/guest')
+  .post(checkoutController.createCheckoutSession);
+
 router.use(authController.protect);
 
 router
