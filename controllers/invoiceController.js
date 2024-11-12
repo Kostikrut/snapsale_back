@@ -44,7 +44,7 @@ exports.createInvoice = catchAsync(async (req, res, next) => {
 });
 
 exports.createGuestInvoice = catchAsync(async (req, res, next) => {
-  const { guestInfo, cart } = req.body;
+  const { guestInfo, cart, shippingOpt } = req.body;
 
   if (
     !guestInfo ||
@@ -74,6 +74,7 @@ exports.createGuestInvoice = catchAsync(async (req, res, next) => {
   const invoice = await Invoice.create({
     guestInfo: filteredGuestInfo,
     listings: cart,
+    shippingOpt,
   });
 
   if (!invoice) {
