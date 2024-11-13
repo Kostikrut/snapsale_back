@@ -6,7 +6,7 @@ const AppError = require('../utils/appError');
 const { sendCheckoutEmail } = require('../utils/email');
 
 exports.createCheckoutSession = catchAsync(async (req, res, next) => {
-  const invoice = await Invoice.findById(req.params.id);
+  const invoice = await Invoice.findById(req.params.id).populate('user');
 
   const items = await Promise.all(
     invoice.listings.map(async (item) => {
