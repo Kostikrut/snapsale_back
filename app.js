@@ -18,6 +18,7 @@ const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const invoiceRouter = require('./routes/invoiceRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
+const marqueeRouter = require('./routes/marqueeRoutes');
 
 const app = express();
 
@@ -70,6 +71,7 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/invoices', invoiceRouter);
 app.use('/api/v1/categories', categoryRouter);
+app.use('/api/v1/marquees', marqueeRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
