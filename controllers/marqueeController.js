@@ -58,7 +58,7 @@ exports.updateMarquee = catchAsync(async (req, res) => {
   res.status(200).json({
     status: 'success',
     data: {
-      updatedMarquee,
+      marquee: updatedMarquee,
     },
   });
 });

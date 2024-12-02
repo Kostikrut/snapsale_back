@@ -27,13 +27,15 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
         return acc + Number(variant.price);
       }, Number(listing.price));
 
+      const itemDiscount = itemFullPrice * (item?.discount / 100 || 0);
+
       return {
         price_data: {
           currency: 'usd',
           product_data: {
             name: itemFullTitle,
           },
-          unit_amount: itemFullPrice * 100,
+          unit_amount: (itemFullPrice - itemDiscount) * 100,
         },
         quantity: item.amount || 1,
       };

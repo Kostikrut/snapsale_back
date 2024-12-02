@@ -29,6 +29,16 @@ const listingSchema = new mongoose.Schema(
       required: [true, 'product must have a price'],
       min: 0,
     },
+    discount: {
+      type: Number,
+      validate: {
+        validator: function (val) {
+          return val < this.price;
+        },
+        message: 'Discount price should be below the regular price',
+      },
+    },
+
     image: {
       filename: String,
     },

@@ -60,9 +60,13 @@ const invoiceSchema = new mongoose.Schema(
     },
     discount: {
       type: Number,
-      min: [0, 'Discount can not be less than 0.'],
-      max: [1, 'Discount can not be above 1.'],
+      min: [0, 'Discount can not be less than 0% off the initial price.'],
+      max: [100, 'Discount can not be above 100% off the initial price.'],
       default: 0,
+    },
+    coupon: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Coupon',
     },
     currency: {
       type: String,
@@ -104,26 +108,26 @@ invoiceSchema.pre('save', async function (next) {
       const listing = await Listing.findById(item._id);
       if (!listing) {
         return next(
-          new AppError(`Listing with an id of ${item.listingId} not found`, 404)
+          new AppError(`Listing with an id of ${item._id} not found`, 404)
         );
       }
 
       const variantsTotalPrice = item.variants.reduce((acc, variant) => {
-        return acc + Number(variant.price);
+        return acc + +variant.price;
       }, 0);
 
-      const listingTotalPrice =
-        (Number(listing.price) + Number(variantsTotalPrice)) * item.amount;
+      const listingBasePrice =
+        (+listing.price + +variantsTotalPrice) * item.amount;
 
-      totalListingsPrice += listingTotalPrice;
+      const itemDiscount = item.discount || 0;
+      const discountedPrice = listingBasePrice * ((100 - itemDiscount) / 100);
+
+      totalListingsPrice += discountedPrice;
     }
 
     let shippingPrice = 0;
-    const standardShippingPrice =
-      Number(process.env.STANDARD_SHIPPING_PRICE) || 5;
-    const expressShippingPrice = Number(
-      process.env.EXPRESS_SHIPPING_PRICE || 10
-    );
+    const standardShippingPrice = +process.env.STANDARD_SHIPPING_PRICE || 5;
+    const expressShippingPrice = +(process.env.EXPRESS_SHIPPING_PRICE || 10);
 
     if (this.shippingOpt.shippingType === 'standard')
       shippingPrice = standardShippingPrice;
@@ -133,7 +137,7 @@ invoiceSchema.pre('save', async function (next) {
     this.totalPrice = (
       shippingPrice +
       totalListingsPrice -
-      totalListingsPrice * this.discount
+      totalListingsPrice * (this.discount / 100)
     ).toFixed(2);
 
     next();

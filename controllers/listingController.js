@@ -44,7 +44,9 @@ exports.createListing = catchAsync(async (req, res, next) => {
 });
 
 exports.updateListing = catchAsync(async (req, res) => {
-  const { title, description, category, tags, price, brand, year } = req.body;
+  console.log('enter');
+  const { title, description, category, tags, price, discount, brand, year } =
+    req.body;
   const parsedTags = typeof tags === 'string' ? JSON.parse(tags) : tags;
   let image, imageName;
   let updateObj = {
@@ -55,6 +57,7 @@ exports.updateListing = catchAsync(async (req, res) => {
     category,
     description,
     price,
+    discount,
   };
 
   updateObj = Object.entries(updateObj)
