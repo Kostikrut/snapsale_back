@@ -1,25 +1,25 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const couponSchema = new mongoose.Schema(
   {
     code: {
       type: String,
-      required: true,
+      required: [true, 'Coupon code is required'],
       unique: true,
       trim: true,
     },
     discountType: {
       type: String,
       enum: ['percentage', 'fixed'],
-      required: true,
+      required: [true, 'Discount type is required ("percentage" or "fixed")'],
     },
     discountValue: {
       type: Number,
-      required: true,
+      required: [true, 'Discount value is required'],
     },
     expirationDate: {
       type: Date,
-      required: true,
+      required: [true, 'Expiration date is required'],
     },
     usageLimit: {
       type: Number,
@@ -52,7 +52,7 @@ const couponSchema = new mongoose.Schema(
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      required: [true, 'Coupon creator is required'],
     },
   },
   {
@@ -69,4 +69,6 @@ couponSchema.methods.isValid = function () {
   );
 };
 
-export default mongoose.model('Coupon', couponSchema);
+const Coupon = mongoose.model('Coupon', couponSchema);
+
+module.exports = Coupon;
