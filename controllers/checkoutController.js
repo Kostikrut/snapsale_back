@@ -30,9 +30,9 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     }
 
     if (coupon.discountType === 'percentage') {
-      couponDiscount = coupon.discountValue / 100; // Convert percentage to decimal
+      couponDiscount = coupon.discountValue / 100;
     } else if (coupon.discountType === 'fixed') {
-      couponDiscount = coupon.discountValue; // Fixed discount in dollars
+      couponDiscount = coupon.discountValue;
       isFixedValue = true;
     } else {
       return next(new AppError('Unsupported coupon type', 400));
@@ -66,7 +66,7 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
       // Apply coupon discount
       if (isFixedValue) {
         const proportionalDiscount =
-          couponDiscount * (finalItemPrice / invoice.total); // Proportional discount for fixed value
+          couponDiscount * (finalItemPrice / invoice.total);
         finalItemPrice -= proportionalDiscount;
       } else {
         finalItemPrice *= 1 - couponDiscount;
@@ -78,7 +78,7 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
           product_data: {
             name: itemFullTitle,
           },
-          unit_amount: Math.max(Math.round(finalItemPrice * 100), 0), // Stripe expects amounts in cents
+          unit_amount: Math.max(Math.round(finalItemPrice * 100), 0),
         },
         quantity: item.amount || 1,
       };
@@ -116,7 +116,6 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     cancel_url: `${process.env.APP_URL}/cart`,
   });
 
-  // Update invoice with the checkout session ID
   await Invoice.findByIdAndUpdate(
     req.params.id,
     {
@@ -125,7 +124,6 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     { new: true }
   );
 
-  // Increment coupon usage count if coupon is applied
   if (invoice.coupon) {
     await Coupon.findByIdAndUpdate(invoice.coupon, {
       $inc: { usedCount: 1 },
