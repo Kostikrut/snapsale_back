@@ -2,12 +2,44 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const catchAsync = require('../utils/catchAsync');
 const Invoice = require('../models/invoiceModel');
 const Listing = require('../models/listingModel');
+const Coupon = require('../models/couponModel');
 const AppError = require('../utils/appError');
 const { sendCheckoutEmail } = require('../utils/email');
 
 exports.createCheckoutSession = catchAsync(async (req, res, next) => {
   const invoice = await Invoice.findById(req.params.id).populate('user');
 
+  if (!invoice) {
+    return next(new AppError('Invoice not found', 404));
+  }
+
+  let couponDiscount = 0;
+  let isFixedValue = false;
+
+  // Validate and apply coupon
+  if (invoice.coupon) {
+    const coupon = await Coupon.findOne({ _id: invoice.coupon });
+
+    if (!coupon) {
+      return next(new AppError('Coupon not found', 404));
+    }
+
+    const couponValidation = await coupon.isValid(invoice);
+    if (!couponValidation.valid) {
+      return next(new AppError(couponValidation.message, 400));
+    }
+
+    if (coupon.discountType === 'percentage') {
+      couponDiscount = coupon.discountValue / 100; // Convert percentage to decimal
+    } else if (coupon.discountType === 'fixed') {
+      couponDiscount = coupon.discountValue; // Fixed discount in dollars
+      isFixedValue = true;
+    } else {
+      return next(new AppError('Unsupported coupon type', 400));
+    }
+  }
+
+  // Generate line items from listings
   const items = await Promise.all(
     invoice.listings.map(async (item) => {
       const listing = await Listing.findById(item._id);
@@ -24,10 +56,21 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
         item.variants.map((variant) => variant.type).join(' ');
 
       const itemFullPrice = item.variants.reduce((acc, variant) => {
-        return acc + Number(variant.price);
-      }, Number(listing.price));
+        return acc + +variant.price;
+      }, +listing.price);
 
       const itemDiscount = itemFullPrice * (item?.discount / 100 || 0);
+
+      let finalItemPrice = itemFullPrice - itemDiscount;
+
+      // Apply coupon discount
+      if (isFixedValue) {
+        const proportionalDiscount =
+          couponDiscount * (finalItemPrice / invoice.total); // Proportional discount for fixed value
+        finalItemPrice -= proportionalDiscount;
+      } else {
+        finalItemPrice *= 1 - couponDiscount;
+      }
 
       return {
         price_data: {
@@ -35,18 +78,19 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
           product_data: {
             name: itemFullTitle,
           },
-          unit_amount: (itemFullPrice - itemDiscount) * 100,
+          unit_amount: Math.max(Math.round(finalItemPrice * 100), 0), // Stripe expects amounts in cents
         },
         quantity: item.amount || 1,
       };
     })
   );
 
+  // Add shipping price
   let shippingPrice = 0;
   if (invoice.shippingOpt.shippingType === 'standard') {
-    shippingPrice = Number(process.env.STANDARD_SHIPPING_PRICE) * 100; // multiply by 100 for cents
+    shippingPrice = +process.env.STANDARD_SHIPPING_PRICE * 100;
   } else if (invoice.shippingOpt.shippingType === 'express') {
-    shippingPrice = Number(process.env.EXPRESS_SHIPPING_PRICE) * 100; // multiply by 100 for cents
+    shippingPrice = +process.env.EXPRESS_SHIPPING_PRICE * 100;
   }
 
   if (shippingPrice > 0) {
@@ -72,6 +116,7 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     cancel_url: `${process.env.APP_URL}/cart`,
   });
 
+  // Update invoice with the checkout session ID
   await Invoice.findByIdAndUpdate(
     req.params.id,
     {
@@ -79,6 +124,13 @@ exports.createCheckoutSession = catchAsync(async (req, res, next) => {
     },
     { new: true }
   );
+
+  // Increment coupon usage count if coupon is applied
+  if (invoice.coupon) {
+    await Coupon.findByIdAndUpdate(invoice.coupon, {
+      $inc: { usedCount: 1 },
+    });
+  }
 
   await sendCheckoutEmail(invoice);
 

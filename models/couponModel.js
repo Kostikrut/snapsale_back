@@ -33,16 +33,15 @@ const couponSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    applicableCategories: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-      },
-    ],
+    applicableCategories: {
+      type: [String],
+      default: [],
+    },
     applicableProducts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Listing',
+        default: [],
       },
     ],
     isActive: {
@@ -56,17 +55,61 @@ const couponSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Adds `createdAt` and `updatedAt` fields
+    timestamps: true,
   }
 );
 
-couponSchema.methods.isValid = function () {
+couponSchema.methods.isValid = async function (invoice) {
   const now = new Date();
-  return (
-    this.isActive &&
-    this.expirationDate > now &&
-    (this.usageLimit === null || this.usedCount < this.usageLimit)
-  );
+
+  if (!this.isActive || this.expirationDate <= now) {
+    return {
+      valid: false,
+      message: 'This coupon is not active or has expired.',
+    };
+  }
+
+  if (invoice.total < this.minOrderValue) {
+    return {
+      valid: false,
+      message: `The total price does not meet the minimum order value of ${this.minOrderValue}.`,
+    };
+  }
+
+  if (this.usageLimit && this.usedCount >= this.usageLimit) {
+    return {
+      valid: false,
+      message: 'The coupon has reached its usage limit.',
+    };
+  }
+
+  if (this.applicableProducts.length > 0) {
+    const applicableProducts = invoice.listings.filter((listing) =>
+      this.applicableProducts.includes(listing.product)
+    );
+
+    if (applicableProducts.length === 0) {
+      return {
+        valid: false,
+        message: 'No products in the invoice match the coupon requirements.',
+      };
+    }
+  }
+
+  if (this.applicableCategories.length > 0) {
+    const applicableCategories = invoice.listings.filter((listing) =>
+      this.applicableCategories.includes(listing.category)
+    );
+
+    if (applicableCategories.length === 0) {
+      return {
+        valid: false,
+        message: 'No categories in the invoice match the coupon requirements.',
+      };
+    }
+  }
+
+  return { valid: true };
 };
 
 const Coupon = mongoose.model('Coupon', couponSchema);

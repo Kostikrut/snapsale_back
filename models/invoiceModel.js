@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Listing = require('./listingModel');
+const Coupon = require('./couponModel');
 const AppError = require('../utils/appError');
 
 const invoiceSchema = new mongoose.Schema(
@@ -102,6 +103,7 @@ const invoiceSchema = new mongoose.Schema(
 // Calculate total price
 invoiceSchema.pre('save', async function (next) {
   try {
+    //Calculate total price of listings
     let totalListingsPrice = 0;
 
     for (const item of this.listings) {
@@ -112,32 +114,99 @@ invoiceSchema.pre('save', async function (next) {
         );
       }
 
-      const variantsTotalPrice = item.variants.reduce((acc, variant) => {
-        return acc + +variant.price;
-      }, 0);
-
+      const variantsTotalPrice = item.variants.reduce(
+        (acc, variant) => acc + +variant.price,
+        0
+      );
       const listingBasePrice =
         (+listing.price + +variantsTotalPrice) * item.amount;
 
-      const itemDiscount = item.discount || 0;
+      const itemDiscount = item.discount || 0; // Discount per item
       const discountedPrice = listingBasePrice * ((100 - itemDiscount) / 100);
 
       totalListingsPrice += discountedPrice;
     }
 
+    // Calculate shipping price
     let shippingPrice = 0;
     const standardShippingPrice = +process.env.STANDARD_SHIPPING_PRICE || 5;
-    const expressShippingPrice = +(process.env.EXPRESS_SHIPPING_PRICE || 10);
+    const expressShippingPrice = +process.env.EXPRESS_SHIPPING_PRICE || 10;
 
     if (this.shippingOpt.shippingType === 'standard')
       shippingPrice = standardShippingPrice;
     if (this.shippingOpt.shippingType === 'express')
       shippingPrice = expressShippingPrice;
 
+    // Apply coupon logic (if a coupon exists)
+    let couponDiscount = 0;
+
+    if (this.coupon) {
+      const coupon = await Coupon.findById(this.coupon);
+
+      if (!coupon || !coupon.isActive || coupon.expirationDate < new Date()) {
+        return next(new AppError('Invalid or expired coupon.', 400));
+      }
+
+      if (coupon.minOrderValue > totalListingsPrice) {
+        return next(
+          new AppError(
+            `Minimum order value for coupon is ${coupon.minOrderValue}.`,
+            400
+          )
+        );
+      }
+
+      if (coupon.usageLimit && coupon.usedCount >= coupon.usageLimit) {
+        return next(new AppError('Coupon usage limit reached.', 400));
+      }
+
+      // Validate applicable products
+      if (coupon.applicableProducts.length > 0) {
+        const applicableProducts = this.listings.filter((item) =>
+          coupon.applicableProducts.includes(item._id)
+        );
+        if (applicableProducts.length === 0) {
+          return next(
+            new AppError(
+              'No products in the invoice match the coupon requirements.',
+              400
+            )
+          );
+        }
+      }
+
+      // Validate applicable categories
+      if (coupon.applicableCategories.length > 0) {
+        const applicableCategories = this.listings.filter((item) =>
+          coupon.applicableCategories.includes(item.category)
+        );
+        if (applicableCategories.length === 0) {
+          return next(
+            new AppError(
+              'No categories in the invoice match the coupon requirements.',
+              400
+            )
+          );
+        }
+      }
+
+      // Calculate coupon discount
+      if (coupon.discountType === 'percentage') {
+        couponDiscount = (totalListingsPrice * coupon.discountValue) / 100;
+      } else {
+        couponDiscount = coupon.discountValue;
+      }
+
+      // Increment coupon usage count
+      coupon.usedCount = (coupon.usedCount || 0) + 1;
+      await coupon.save();
+    }
+
+    // Step 4: Calculate final total price
     this.totalPrice = (
       shippingPrice +
       totalListingsPrice -
-      totalListingsPrice * (this.discount / 100)
+      couponDiscount
     ).toFixed(2);
 
     next();

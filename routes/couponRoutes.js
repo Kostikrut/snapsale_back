@@ -18,6 +18,12 @@ router
     couponController.getAllCoupons
   );
 
-router.route('/:couponName').get(couponController.getCoupon);
+router.route('/apply').post(couponController.applyCoupon);
+
+router.post('/validate', couponController.validateCoupon);
+
+router
+  .route('/:code')
+  .get(authController.restrictTo('admin'), couponController.getCoupon);
 
 module.exports = router;
