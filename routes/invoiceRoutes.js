@@ -25,7 +25,8 @@ router
 
 router
   .route('/')
-  .post(invoiceController.getInvoiceUserId, invoiceController.createInvoice);
+  .post(invoiceController.getInvoiceUserId, invoiceController.createInvoice)
+  .get(authController.restrictTo('admin'), invoiceController.getAllInvoices);
 
 router
   .route('/:id')

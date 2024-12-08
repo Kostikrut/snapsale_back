@@ -147,5 +147,6 @@ exports.getPurchaseHistory = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAllInvoices = factory.getAll(Invoice);
 exports.getInvoice = factory.getOne(Invoice);
 exports.deleteInvoice = factory.deleteOne(Invoice);
