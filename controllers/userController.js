@@ -16,6 +16,8 @@ const filterObj = function (bodyObj, allowedFieldsArr) {
 };
 
 exports.updateMe = catchAsync(async (req, res, next) => {
+  let image;
+
   if (req.body.password || req.body.passwordConfirm)
     return next(
       new AppError(
@@ -24,26 +26,28 @@ exports.updateMe = catchAsync(async (req, res, next) => {
       )
     );
 
-  const imageName = await uploadImage(req.file);
+  if (req.file) {
+    const imageName = await uploadImage(req.file);
+    if (!imageName)
+      return next(
+        new AppError(
+          'Failed to upload image, please ensure the file is valid.',
+          500
+        )
+      );
+    image = { filename: imageName };
+  }
 
-  if (!imageName)
-    return next(
-      new AppError(
-        'Failed to upload an image, please make sure that the file is an image.',
-        500
-      )
-    );
-
-  const image = { filename: imageName };
-
-  // 2) Filter out unwanted fields
+  // 3) Filter out unwanted fields
   const filteredBody = filterObj(req.body, [
     'fullName',
     'email',
     'phone',
-    'image',
     'address',
   ]);
+
+  // Add image only if it exists
+  if (image) filteredBody.image = image;
 
   filteredBody.image = image;
 
