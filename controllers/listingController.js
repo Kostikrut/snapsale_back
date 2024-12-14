@@ -2,7 +2,6 @@ const Listing = require('./../models/listingModel');
 const Category = require('./../models/categoryModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('../utils/appError');
-const factory = require('./handleFactory');
 const apiFeatures = require('../utils/apiFeatures');
 const {
   uploadImage,
@@ -44,7 +43,6 @@ exports.createListing = catchAsync(async (req, res, next) => {
 });
 
 exports.updateListing = catchAsync(async (req, res) => {
-  console.log('enter');
   const { title, description, category, tags, price, discount, brand, year } =
     req.body;
   const parsedTags = typeof tags === 'string' ? JSON.parse(tags) : tags;
@@ -156,8 +154,6 @@ exports.updateListingVariant = catchAsync(async (req, res, next) => {
 
 exports.getListing = catchAsync(async (req, res, next) => {
   let listing = await Listing.findById(req.params.id).populate('reviews');
-
-  Listing.findM;
 
   if (!listing)
     return next(new AppError('No listing found with that id.', 404));
