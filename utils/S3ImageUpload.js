@@ -32,7 +32,7 @@ async function uploadImage(file, type) {
   switch (type) {
     case 'banner':
       width = 1500;
-      height = 500;
+      height = 1000;
       break;
     case 'profile':
       width = 500;

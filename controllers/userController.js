@@ -149,8 +149,6 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     }
   }
 
-  console.log(users);
-
   return res.status(200).json({
     status: 'success',
     results: users.length,
@@ -186,5 +184,23 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getUser = factory.getOne(User);
+exports.getUser = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next(new AppError('No user found with that Id', 404));
+  }
+
+  user.image.url = await getImageUrl(user.image.filename);
+  if (!user.image.url) {
+    user.image.url = await getImageUrl('placeholder_profile_picture.jpeg');
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user,
+    },
+  });
+});
 exports.deleteUser = factory.deleteOne(User); // admin only or the user himself

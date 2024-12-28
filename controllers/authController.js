@@ -105,6 +105,9 @@ exports.protect = catchAsync(async function (req, res, next) {
 });
 
 exports.verifyStoredToken = catchAsync(async (req, res, next) => {
+  if (req.user.image.filename) {
+  }
+
   if (req.user) return createSendToken(req.user, 200, res);
 
   return next(new AppError('No user found with this token.', 404));

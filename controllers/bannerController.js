@@ -21,8 +21,6 @@ exports.getAllBanners = catchAsync(async (req, res, next) => {
     updatedBanners.push(banner);
   }
 
-  console.log(updatedBanners);
-
   res.status(200).json({
     status: 'success',
     results: banners.length,
@@ -76,6 +74,7 @@ exports.createBanner = catchAsync(async (req, res, next) => {
 });
 
 exports.updateBanner = catchAsync(async (req, res, next) => {
+  console.log(req.body, req.file);
   if (req.file) {
     const imageName = await uploadImage(req.file, 'banner');
 

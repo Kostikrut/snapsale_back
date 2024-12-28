@@ -13,7 +13,7 @@ router.route('/').post(uploadImageToS3Bucket, bannerController.createBanner);
 
 router
   .route('/:id')
-  .put(uploadImageToS3Bucket, bannerController.updateBanner)
+  .patch(uploadImageToS3Bucket, bannerController.updateBanner)
   .delete(bannerController.deleteBanner);
 
 module.exports = router;
