@@ -24,7 +24,7 @@ const bannerRouter = require('./routes/bannerRoutes');
 
 const app = express();
 
-app.use('/uploads', cors(), express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', cors(), express.static(path.join(__dirname, 'uploads')));
 
 app.use(
   cors({
@@ -32,9 +32,9 @@ app.use(
   })
 );
 
-app.get('/uploads/:image', (req, res) => {
-  res.sendFile(__dirname + `/uploads/${req.params.image}`);
-});
+// app.get('/uploads/:image', (req, res) => {
+//   res.sendFile(__dirname + `/uploads/${req.params.image}`);
+// });
 
 // Set security http headers
 app.use(helmet());
@@ -67,6 +67,8 @@ app.use(xss());
 app.use(hpp());
 
 app.use(compression());
+
+app.use(express.static(path.resolve(__dirname, '../front/build')));
 
 app.use('/api/v1/listings', listingRouter);
 app.use('/api/v1/users', userRouter);

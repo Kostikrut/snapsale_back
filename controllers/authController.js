@@ -19,7 +19,6 @@ const createSendToken = (user, statusCode, res) => {
 
   const cookieOptions = {
     expires: new Date(expiresIn),
-    // secure: true, // for secure https
     httpOnly: true,
   };
 
