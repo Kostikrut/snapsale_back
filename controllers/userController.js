@@ -63,7 +63,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   });
 });
 
-// Deactivate user
 exports.deleteMe = catchAsync(async (req, res, next) => {
   const user = await User.findByIdAndUpdate(req.user.id, { isActive: false });
 
@@ -203,4 +202,5 @@ exports.getUser = catchAsync(async (req, res, next) => {
     },
   });
 });
+
 exports.deleteUser = factory.deleteOne(User); // admin only or the user himself

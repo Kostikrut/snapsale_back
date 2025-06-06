@@ -24,27 +24,20 @@ const bannerRouter = require('./routes/bannerRoutes');
 
 const app = express();
 
-// app.use('/uploads', cors(), express.static(path.join(__dirname, 'uploads')));
-
 app.use(
   cors({
-    origin: ['http://127.0.0.1:3000', process.env.APP_URL],
+    origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+    credentials: true,
   })
 );
-
-// app.get('/uploads/:image', (req, res) => {
-//   res.sendFile(__dirname + `/uploads/${req.params.image}`);
-// });
 
 // Set security http headers
 app.use(helmet());
 
-// Dev logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Limit too many requests from the same API
 const limiter = rateLimit({
   max: 3000,
   windowMs: 60 * 60 * 1000,
@@ -52,7 +45,6 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
-// Body parser - get the body from the request
 app.use(express.json({ limit: '1mb' }));
 
 app.use(express.urlencoded({ extended: true }));

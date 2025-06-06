@@ -11,7 +11,7 @@ const sendEmail = async (options) => {
   });
 
   const emailOptions = {
-    from: 'SnapSale admin <admin@SnapSale.com>',
+    from: 'SnapSale admin <admin@SnapSale.cc>',
     to: options.to,
     subject: options.subject,
     text: options.text,
@@ -88,4 +88,41 @@ const sendCheckoutEmail = async (invoice) => {
   await sendEmail(emailOptions);
 };
 
-module.exports = { sendCheckoutEmail, sendEmail };
+const sendResetPasswordUrl = async ({ to, fullName, resetUrl }) => {
+  const emailOptions = {
+    to,
+    subject: 'Reset Your Password - SnapSale Market',
+    text: `Hi ${fullName},\n\nWe received a request to reset your password.\nClick the link below to reset it:\n${resetUrl}\n\nNote: This link is valid for only 10 minutes.\n\nIf you didn't request this, you can ignore this message.`,
+    html: `
+      <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e5e5; border-radius: 8px; background-color: #fafafa;">
+        <h2 style="color: #2a9d8f; text-align: center;">Hello, ${fullName}</h2>
+        <p style="font-size: 16px; text-align: center; color: #555;">
+          We received a request to reset your password. Click the button below to proceed:
+        </p>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="${resetUrl}" style="display: inline-block; padding: 12px 24px; font-size: 16px; background-color: #2a9d8f; color: white; text-decoration: none; border-radius: 6px;">
+            Reset Password
+          </a>
+        </div>
+
+        <p style="font-size: 14px; color: #d9534f; text-align: center; margin-bottom: 10px;">
+          ⚠️ This link is valid for only 10 minutes.
+        </p>
+
+        <p style="font-size: 14px; color: #888; text-align: center;">
+          If you didn’t request a password reset, you can safely ignore this email.
+        </p>
+
+        <footer style="text-align: center; margin-top: 20px; font-size: 14px; color: #aaa;">
+          <p>SnapSale Market</p>
+          <p>Helping you shop smarter.</p>
+        </footer>
+      </div>
+    `,
+  };
+
+  await sendEmail(emailOptions);
+};
+
+module.exports = { sendCheckoutEmail, sendResetPasswordUrl, sendEmail };

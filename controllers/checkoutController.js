@@ -6,128 +6,114 @@ const Coupon = require('../models/couponModel');
 const AppError = require('../utils/appError');
 const { sendCheckoutEmail } = require('../utils/email');
 
-exports.createCheckoutSession = catchAsync(async (req, res, next) => {
-  const invoice = await Invoice.findById(req.params.id).populate('user');
+const applyCoupon = async (invoice) => {
+  if (!invoice.coupon) return { discount: 0, isFixed: false };
 
-  if (!invoice) {
-    return next(new AppError('Invoice not found', 404));
+  const coupon = await Coupon.findById(invoice.coupon);
+  if (!coupon) throw new AppError('Coupon not found', 404);
+
+  const validation = await coupon.isValid(invoice);
+  if (!validation.valid) throw new AppError(validation.message, 400);
+
+  if (coupon.discountType === 'percentage') {
+    return { discount: coupon.discountValue / 100, isFixed: false };
   }
 
-  let couponDiscount = 0;
-  let isFixedValue = false;
-
-  // Validate and apply coupon
-  if (invoice.coupon) {
-    const coupon = await Coupon.findOne({ _id: invoice.coupon });
-
-    if (!coupon) {
-      return next(new AppError('Coupon not found', 404));
-    }
-
-    const couponValidation = await coupon.isValid(invoice);
-    if (!couponValidation.valid) {
-      return next(new AppError(couponValidation.message, 400));
-    }
-
-    if (coupon.discountType === 'percentage') {
-      couponDiscount = coupon.discountValue / 100;
-    } else if (coupon.discountType === 'fixed') {
-      couponDiscount = coupon.discountValue;
-      isFixedValue = true;
-    } else {
-      return next(new AppError('Unsupported coupon type', 400));
-    }
+  if (coupon.discountType === 'fixed') {
+    return { discount: coupon.discountValue, isFixed: true };
   }
 
-  // Generate line items from listings
-  const items = await Promise.all(
+  throw new AppError('Unsupported coupon type', 400);
+};
+
+const buildLineItems = async (invoice, couponDiscount, isFixed) => {
+  return Promise.all(
     invoice.listings.map(async (item) => {
       const listing = await Listing.findById(item._id);
+      if (!listing) throw new AppError(`Listing ${item._id} not found`, 404);
 
-      if (!listing) {
-        return next(
-          new AppError(`Listing with an id of ${item._id} not found`, 404)
-        );
-      }
+      const title = `${listing.title} ${item.variants
+        .map((v) => v.type)
+        .join(' ')}`;
 
-      const itemFullTitle =
-        listing.title +
-        ' ' +
-        item.variants.map((variant) => variant.type).join(' ');
+      const basePrice = item.variants.reduce(
+        (acc, v) => acc + +v.price,
+        +listing.price
+      );
 
-      const itemFullPrice = item.variants.reduce((acc, variant) => {
-        return acc + +variant.price;
-      }, +listing.price);
+      const discount = basePrice * (item?.discount / 100 || 0);
+      let finalPrice = basePrice - discount;
 
-      const itemDiscount = itemFullPrice * (item?.discount / 100 || 0);
-
-      let finalItemPrice = itemFullPrice - itemDiscount;
-
-      // Apply coupon discount
-      if (isFixedValue) {
+      if (isFixed) {
         const proportionalDiscount =
-          couponDiscount * (finalItemPrice / invoice.total);
-        finalItemPrice -= proportionalDiscount;
+          couponDiscount * (finalPrice / invoice.total);
+        finalPrice -= proportionalDiscount;
       } else {
-        finalItemPrice *= 1 - couponDiscount;
+        finalPrice *= 1 - couponDiscount;
       }
 
       return {
         price_data: {
           currency: 'usd',
-          product_data: {
-            name: itemFullTitle,
-          },
-          unit_amount: Math.max(Math.round(finalItemPrice * 100), 0),
+          product_data: { name: title },
+          unit_amount: Math.max(Math.round(finalPrice * 100), 0),
         },
         quantity: item.amount || 1,
       };
     })
   );
+};
 
-  // Add shipping price
-  let shippingPrice = 0;
-  if (invoice.shippingOpt.shippingType === 'standard') {
-    shippingPrice = +process.env.STANDARD_SHIPPING_PRICE * 100;
-  } else if (invoice.shippingOpt.shippingType === 'express') {
-    shippingPrice = +process.env.EXPRESS_SHIPPING_PRICE * 100;
+const getShippingLineItem = (shippingOpt) => {
+  const type = shippingOpt.shippingType;
+  let price = 0;
+
+  if (type === 'standard') {
+    price = +process.env.STANDARD_SHIPPING_PRICE;
   }
 
-  if (shippingPrice > 0) {
-    items.push({
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: `Shipping (${invoice.shippingOpt.shippingType})`,
-        },
-        unit_amount: shippingPrice,
-      },
-      quantity: 1,
-    });
+  if (type === 'express') {
+    price = +process.env.EXPRESS_SHIPPING_PRICE;
   }
+
+  if (price === 0) return null;
+
+  return {
+    price_data: {
+      currency: 'usd',
+      product_data: { name: `Shipping (${type})` },
+      unit_amount: price * 100,
+    },
+    quantity: 1,
+  };
+};
+
+exports.createCheckoutSession = catchAsync(async (req, res, next) => {
+  const invoice = await Invoice.findById(req.params.id).populate('user');
+  if (!invoice) return next(new AppError('Invoice not found', 404));
+
+  const { discount: couponDiscount, isFixed } = await applyCoupon(invoice);
+
+  const lineItems = await buildLineItems(invoice, couponDiscount, isFixed);
+
+  const shippingItem = getShippingLineItem(invoice.shippingOpt);
+  if (shippingItem) lineItems.push(shippingItem);
 
   const customerEmail = req?.user?.email || invoice.guestInfo.email;
-
   const session = await stripe.checkout.sessions.create({
-    line_items: items,
+    line_items: lineItems,
     mode: 'payment',
     customer_email: customerEmail,
     success_url: `${process.env.APP_URL}/paymentSuccess?invoice=${invoice.id}`,
     cancel_url: `${process.env.APP_URL}/cart`,
   });
 
-  await Invoice.findByIdAndUpdate(
-    req.params.id,
-    {
-      checkoutSessionId: session.id,
-    },
-    { new: true }
-  );
+  await Invoice.findByIdAndUpdate(req.params.id, {
+    checkoutSessionId: session.id,
+  });
 
   if (invoice.coupon) {
-    await Coupon.findByIdAndUpdate(invoice.coupon, {
-      $inc: { usedCount: 1 },
-    });
+    await Coupon.findByIdAndUpdate(invoice.coupon, { $inc: { usedCount: 1 } });
   }
 
   await sendCheckoutEmail(invoice);

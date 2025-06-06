@@ -153,7 +153,9 @@ exports.updateListingVariant = catchAsync(async (req, res, next) => {
 });
 
 exports.getListing = catchAsync(async (req, res, next) => {
-  let listing = await Listing.findById(req.params.id).populate('reviews');
+  let listing = await Listing.findById(req.params.id)
+    .populate('reviews')
+    .select('+ratingsAvg +numRatings');
 
   if (!listing)
     return next(new AppError('No listing found with that id.', 404));

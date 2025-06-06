@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
-const sendEmail = require('./../utils/email');
+const { sendResetPasswordUrl } = require('./../utils/email');
 const crypto = require('crypto');
 
 const signToken = (id) => {
@@ -41,6 +41,15 @@ exports.signup = catchAsync(async (req, res, next) => {
   const { fullName, email, phone, password, passwordConfirm, address } =
     req.body;
 
+  const user = await User.findOne({ email });
+
+  if (user) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'User with specified email already exists',
+    });
+  }
+
   const newUser = await User.create({
     fullName,
     email,
@@ -53,7 +62,6 @@ exports.signup = catchAsync(async (req, res, next) => {
   createSendToken(newUser, 201, res);
 });
 
-//                             {{{{DO LATER}}}}      ACTIVATE USER AGAIN IF HE IS DELETED HIS ACCOUNT
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -104,9 +112,6 @@ exports.protect = catchAsync(async function (req, res, next) {
 });
 
 exports.verifyStoredToken = catchAsync(async (req, res, next) => {
-  if (req.user.image.filename) {
-  }
-
   if (req.user) return createSendToken(req.user, 200, res);
 
   return next(new AppError('No user found with this token.', 404));
@@ -131,18 +136,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const resetToken = user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
 
-  // const resetUrl = `${req.protocol}://${req.get(
-  //   'host'
-  // )}/api/v1/users/resetPassword/${resetToken}`;
-  const resetUrl = `${req.protocol}://${process.env.APP_URL}/resetPassword/${resetToken}`;
-
-  const message = `Forgot ypur password? Submit a PATCH request with your new password and passwordConfirm to: ${resetUrl}. \nif you did not forget your password, please ignore this email.`;
+  const resetUrl = `${process.env.APP_URL}/resetPassword/${resetToken}`;
 
   try {
-    await sendEmail({
-      email: user.email,
-      subject: 'Your password reset token (valid for 10 minutes)',
-      message,
+    await sendResetPasswordUrl({
+      to: user.email,
+      fullName: user.fullName,
+      resetUrl,
     });
 
     return res.status(200).json({
@@ -150,6 +150,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       message: `Reset token sent to the provided email (${user.email}). Your password reset token (valid for 10 minutes). `,
     });
   } catch (err) {
+    console.log(err);
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;
     await user.save({ validateBeforeSave: false });
